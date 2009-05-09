@@ -112,11 +112,9 @@ endfunction
 
 map <leader>s :call ToggleScratch()<CR>
 
-" Enable code folding by syntax and set foldlevel high
-" so that the code is not folded by default
-set foldenable
-set foldmethod=syntax
-set foldlevel=999
+" Enable code folding by syntax and disable folding by default
+setlocal foldmethod=syntax
+setlocal nofoldenable
 
 " Turn off rails related things in statusbar
 let g:rails_statusline=0 

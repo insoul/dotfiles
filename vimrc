@@ -3,9 +3,7 @@ if v:lang =~ "utf8$" || v:lang =~ "UTF-8$"
 endif
 
 set nocompatible	" Use Vim defaults (much better!)
-set bs=indent,eol,start		" allow backspacing over everything in insert mode
-"set ai			" always set autoindenting on
-"set backup		" keep a backup file
+set bs=indent,eol,start	" allow backspacing over everything in insert mode
 set viminfo='20,\"50	" read/write a .viminfo file, don't store more
 			" than 50 lines of registers
 set history=50		" keep 50 lines of command line history
@@ -13,24 +11,31 @@ set ruler		" show the cursor position all the time
 set number		" show line numbers
 set smarttab		" smart tabulatin and backspace
 set title		" show title
-"set cursorline		" show the current working line	
 
 " Only do this part when compiled with support for autocommands
 if has("autocmd")
   augroup fedora
-  autocmd!
-  " In text files, always limit the width of text to 78 characters
-  autocmd BufRead *.txt set tw=78
-  " When editing a file, always jump to the last cursor position
-  autocmd BufReadPost *
-  \ if line("'\"") > 0 && line ("'\"") <= line("$") |
-  \   exe "normal! g'\"" |
-  \ endif
-  " don't write swapfile on most commonly used directories for NFS mounts or USB sticks
-  autocmd BufNewFile,BufReadPre /media/*,/mnt/* set directory=~/tmp,/var/tmp,/tmp
-  " start with spec file template
-"  autocmd BufNewFile *.spec 0r /usr/share/vim/vimfiles/template.spec
+    autocmd!
+    " In text files, always limit the width of text to 78 characters
+    autocmd BufRead *.txt set tw=78
+    " When editing a file, always jump to the last cursor position
+    autocmd BufReadPost *
+    \ if line("'\"") > 0 && line ("'\"") <= line("$") |
+    \   exe "normal! g'\"" |
+    \ endif
+    " don't write swapfile on most commonly used directories for NFS mounts or USB sticks
+    autocmd BufNewFile,BufReadPre /media/*,/mnt/* set directory=~/tmp,/var/tmp,/tmp
+
+    " Switch to working directory of the open file 
+    autocmd BufEnter * lcd %:p:h
   augroup END
+
+  " Enable formatting based on file types
+  augroup myfiletypes
+    autocmd!
+    autocmd FileType ruby,eruby,yaml,cucumber,vim,lua,latex,tex set autoindent shiftwidth=2 softtabstop=2 expandtab 
+    autocmd BufRead *.mkd,*.markdown  set ai formatoptions=tcroqn2 comments=n:>
+  augroup END 
 endif
 
 if has("cscope") && filereadable("/usr/bin/cscope")
@@ -76,8 +81,6 @@ map <leader>d :execute 'NERDTreeToggle ' . getcwd()<CR>
 let NERDChristmasTree = 1		" NERDTree with colors
 let NERDTreeHighlightCursorline = 1	" highlight cursorline
 let NERDTreeMapActivateNode='<CR>'	" set Enter/Return to activate a node
-"let NERDTreeShowHidden = 1		" show hidden files
-"let NERDTreeIgnore=['\.git','\.DS_Store']
 
 " Set the keys to turn spell checking on/off
 map <F8> <Esc>:setlocal spell spelllang=en_us<CR>
@@ -118,15 +121,5 @@ set foldlevel=999
 " Turn off rails related things in statusbar
 let g:rails_statusline=0 
 
-" Enable formatting based on file types
-augroup myfiletypes
-  autocmd!
-  autocmd FileType ruby,eruby,yaml,cucumber,vim,lua,latex,tex set autoindent shiftwidth=2 softtabstop=2 expandtab 
-  autocmd BufRead *.mkd,*.markdown  set ai formatoptions=tcroqn2 comments=n:>
-augroup END 
-
 " Remove highlighting search results
 map <silent> <leader>nh :nohls <CR>
-
-" Switch to working directory of the open file 
-autocmd BufEnter * lcd %:p:h

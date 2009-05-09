@@ -121,9 +121,12 @@ let g:rails_statusline=0
 " Enable formatting based on file types
 augroup myfiletypes
   autocmd!
-  autocmd FileType ruby,eruby,yaml,cucumber,vim,lua set autoindent shiftwidth=2 softtabstop=2 expandtab 
+  autocmd FileType ruby,eruby,yaml,cucumber,vim,lua,latex,tex set autoindent shiftwidth=2 softtabstop=2 expandtab 
   autocmd BufRead *.mkd,*.markdown  set ai formatoptions=tcroqn2 comments=n:>
 augroup END 
 
 " Remove highlighting search results
 map <silent> <leader>nh :nohls <CR>
+
+" Switch to working directory of the open file 
+autocmd BufEnter * lcd %:p:h

@@ -12,8 +12,6 @@ set number              " show line numbers
 set smarttab            " smart tabulatin and backspace
 set title               " show title
 set incsearch           " find while typing
-set nowrap              " don't wrap lines
-set linebreak           " break lines in display at convenient points
 
 " Display a place holder character for tabs and trailing spaces
 set list

@@ -2,15 +2,16 @@ if v:lang =~ "utf8$" || v:lang =~ "UTF-8$"
    set fileencodings=ucs-bom,utf-8,latin1
 endif
 
-set nocompatible	" Use Vim defaults (much better!)
-set bs=indent,eol,start	" allow backspacing over everything in insert mode
-set viminfo='20,\"50	" read/write a .viminfo file, don't store more
-			" than 50 lines of registers
-set history=50		" keep 50 lines of command line history
-set ruler		" show the cursor position all the time
-set number		" show line numbers
-set smarttab		" smart tabulatin and backspace
-set title		" show title
+set nocompatible        " Use Vim defaults (much better!)
+set bs=indent,eol,start " allow backspacing over everything in insert mode
+set viminfo='20,\"50    " read/write a .viminfo file, don't store more
+                        " than 50 lines of registers
+set history=50          " keep 50 lines of command line history
+set ruler               " show the cursor position all the time
+set number              " show line numbers
+set smarttab            " smart tabulatin and backspace
+set title               " show title
+set incsearch           " find while typing
 
 " Display a place holder character for tabs and trailing spaces
 set list
@@ -82,9 +83,9 @@ let mapleader = ","
 " Set the key to toggle NERDTree
 nnoremap <leader>d :NERDTreeToggle<cr>
 
-let NERDChristmasTree = 1		" NERDTree with colors
-let NERDTreeHighlightCursorline = 1	" highlight cursorline
-let NERDTreeMapActivateNode='<CR>'	" set Enter/Return to activate a node
+let NERDChristmasTree = 1               " NERDTree with colors
+let NERDTreeHighlightCursorline = 1     " highlight cursorline
+let NERDTreeMapActivateNode='<CR>'      " set Enter/Return to activate a node
 
 " Set the keys to turn spell checking on/off
 map <F8> <Esc>:setlocal spell spelllang=en_us<CR>
@@ -93,7 +94,7 @@ map <F9> <Esc>:setlocal nospell<CR>
 " Set FuzzyFinder settings
 let g:fuzzy_ignore = "*.log"
 let g:fuzzy_matching_limit = 70
-let g:fuzzy_ceiling=20000	" file count limit to search
+let g:fuzzy_ceiling=20000               " file count limit to search
 
 " Add what to ignore in the fuzzy search
 let g:fuzzy_ignore = "*.png;*.PNG;*.JPG;*.jpg;*.GIF;*.gif"

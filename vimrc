@@ -80,7 +80,7 @@ let &guicursor = &guicursor . ",a:blinkon0"
 let mapleader = ","
 
 " Set the key to toggle NERDTree
-map <leader>d :execute 'NERDTreeToggle ' . getcwd()<CR>
+nnoremap <leader>d :NERDTreeToggle<cr>
 
 let NERDChristmasTree = 1		" NERDTree with colors
 let NERDTreeHighlightCursorline = 1	" highlight cursorline
@@ -125,3 +125,8 @@ let g:rails_statusline=0
 
 " Remove highlighting search results
 map <silent> <leader>nh :nohls <CR>
+
+" Snipmate setup
+source ~/.vim/snippets/support_functions.vim
+autocmd vimenter * call ExtractSnips("~/.vim/snippets/html", "eruby")
+autocmd vimenter * call ExtractSnips("~/.vim/snippets/html", "php")

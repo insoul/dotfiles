@@ -12,14 +12,14 @@ some of the plugins are taken from vim.org, some are taken from the source.
 This is the current setting I use. If you plan to use this for your configuration,
 please note that you will need Ruby installed and in your path (for the fuzzy
 finder textmate plugin). Here are the plugins I use:
-- NERD_tree (file browser)
-- Snipmate (snippet completion)
-- Scratch (temoprary buffer)
-- Rails (for Ruby on Rails)
-- Fuzzy_Finder_Textmate (search for files and open)
-- Gist (make gits to gist.github.com)
-- VCS-Git (Git Distributed VCS support)
-- and some more
+  - NERD_tree (file browser)
+  - Snipmate (snippet completion)
+  - Scratch (temoprary buffer)
+  - Rails (for Ruby on Rails)
+  - Fuzzy_Finder_Textmate (search for files and open)
+  - Gist (make gits to gist.github.com)
+  - VCS-Git (Git Distributed VCS support)
+  - and some more
 
 Vim 7.2 already has some great additional features like spell checking, word
 completion, etc. I'm only interested in maintaining this configuration for the
@@ -30,8 +30,8 @@ How to use this as your configuration
 ---------------------------------------
 It's straight forward if you don't have custom Vim configuration. Just
 clone this repo and either link (ln -s) or copy the
-1. vimrc as ~/.vimrc
-2. vim/ as ~/.vim
+  1. vimrc as ~/.vimrc
+  2. vim/ as ~/.vim
 
 That's all.
 

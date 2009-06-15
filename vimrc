@@ -12,6 +12,10 @@ set number		" show line numbers
 set smarttab		" smart tabulatin and backspace
 set title		" show title
 
+" Display a place holder character for tabs and trailing spaces
+set list
+set listchars=trail:⋅,nbsp:⋅,tab:▷⋅
+
 " Only do this part when compiled with support for autocommands
 if has("autocmd")
   augroup fedora
@@ -26,14 +30,14 @@ if has("autocmd")
     " don't write swapfile on most commonly used directories for NFS mounts or USB sticks
     autocmd BufNewFile,BufReadPre /media/*,/mnt/* set directory=~/tmp,/var/tmp,/tmp
 
-    " Switch to working directory of the open file 
+    " Switch to working directory of the open file
     autocmd BufEnter * lcd %:p:h
   augroup END
 
   " Enable formatting based on file types
   augroup myfiletypes
     autocmd!
-    autocmd FileType ruby,eruby,yaml,cucumber,vim,lua,latex,tex set autoindent shiftwidth=2 softtabstop=2 expandtab 
+    autocmd FileType ruby,eruby,yaml,cucumber,vim,lua,latex,tex set autoindent shiftwidth=2 softtabstop=2 expandtab
     autocmd BufRead *.mkd,*.markdown  set ai formatoptions=tcroqn2 comments=n:>
   augroup END 
 endif
@@ -87,7 +91,7 @@ map <F8> <Esc>:setlocal spell spelllang=en_us<CR>
 map <F9> <Esc>:setlocal nospell<CR>
 
 " Set FuzzyFinder settings
-let g:fuzzy_ignore = "*.log"   
+let g:fuzzy_ignore = "*.log"
 let g:fuzzy_matching_limit = 70
 let g:fuzzy_ceiling=20000	" file count limit to search
 
@@ -101,12 +105,12 @@ let g:fuzzy_ignore = "*.zip;*.ZIP;*.tar;*.7z;*.gz;*.bz2"
 map <leader>t :FuzzyFinderTextMate<CR>
 map <leader>b :FuzzyFinderBuffer<CR>
 
-" Set keys to toggle Scratch buffer 
-function! ToggleScratch()      
+" Set keys to toggle Scratch buffer
+function! ToggleScratch()
   if expand('%') == g:ScratchBufferName
     quit
   else
-    Sscratch                   
+    Sscratch
   endif
 endfunction
 
@@ -117,7 +121,7 @@ setlocal foldmethod=syntax
 setlocal nofoldenable
 
 " Turn off rails related things in statusbar
-let g:rails_statusline=0 
+let g:rails_statusline=0
 
 " Remove highlighting search results
 map <silent> <leader>nh :nohls <CR>

@@ -12,6 +12,7 @@ set number              " show line numbers
 set smarttab            " smart tabulatin and backspace
 set title               " show title
 set incsearch           " find while typing
+set t_Co=256            " terminal uses 256 colors
 
 " Display a place holder character for tabs and trailing spaces
 set list
@@ -66,12 +67,6 @@ if &t_Co > 2 || has("gui_running")
 endif
 
 filetype plugin indent on
-
-if &term=="xterm"
-     set t_Co=8
-     set t_Sb=[4%dm
-     set t_Sf=[3%dm
-endif
 
 " Don't wake up system with blinking cursor:
 " http://www.linuxpowertop.org/known.php

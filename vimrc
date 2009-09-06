@@ -127,4 +127,10 @@ source ~/.vim/snippets/support_functions.vim
 autocmd vimenter * call ExtractSnips("~/.vim/snippets/html", "eruby")
 autocmd vimenter * call ExtractSnips("~/.vim/snippets/html", "php")
 
+" Vim-LaTeX setup
+filetype plugin on
+set grepprg=grep\ -nH\ $*
+let g:tex_flavor='latex'
+
+" Set color scheme
 colorscheme peaksea

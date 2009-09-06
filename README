@@ -36,13 +36,9 @@ It's straight forward if you don't have custom Vim configuration. Just
 clone this repo and either link (ln -s) or copy the
   1. vimrc as ~/.vimrc
   2. vim/ as ~/.vim
+  3. gvimrc as ~/.gvimrc
 
 That's all.
-
-
-Note: In case you are wondering, I'm not using gvim (vim with GUI). So the
-files in this repo are just for Vim. I made this for my use. You are welcome
-to use it, if it works for you. :) 
 
 Thanks goes to many many Vim users for making the plugins, snippets, syntax,
 etc. files and also for making their Vim configuration public so that I could

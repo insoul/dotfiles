@@ -13,12 +13,15 @@ This is the current setting I use. If you plan to use this for your
 configuration, please note that you will need Ruby installed and in your path
 (for the fuzzy finder textmate plugin). Here are the plugins I use:
   - NERD_tree (file browser)
+  - NERD Commenter (commenting)
   - Snipmate (snippet completion)
   - Scratch (temoprary buffer)
   - Rails (for Ruby on Rails)
+  - Vim-LaTeX suite (for TeX/LaTeX)
   - Fuzzy_Finder_Textmate (search for files and open)
   - Gist (make gits to gist.github.com)
   - VCS-Git (Git Distributed VCS support)
+  - Matchit
   - and some more
 
 Vim 7.2 already has some great additional features like spell checking, word

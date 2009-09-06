@@ -127,4 +127,4 @@ source ~/.vim/snippets/support_functions.vim
 autocmd vimenter * call ExtractSnips("~/.vim/snippets/html", "eruby")
 autocmd vimenter * call ExtractSnips("~/.vim/snippets/html", "php")
 
-colorscheme darkblack
+colorscheme peaksea

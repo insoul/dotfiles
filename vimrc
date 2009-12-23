@@ -33,7 +33,7 @@ if has("autocmd")
     autocmd BufNewFile,BufReadPre /media/*,/mnt/* set directory=~/tmp,/var/tmp,/tmp
 
     " Switch to working directory of the open file
-    autocmd BufEnter * lcd %:p:h
+    "autocmd BufEnter * lcd %:p:h
   augroup END
 
   " Enable formatting based on file types
@@ -86,21 +86,6 @@ let NERDTreeMapActivateNode='<CR>'      " set Enter/Return to activate a node
 map <F8> <Esc>:setlocal spell spelllang=en_us<CR>
 map <F9> <Esc>:setlocal nospell<CR>
 
-" Set FuzzyFinder settings
-let g:fuzzy_ignore = "*.log"
-let g:fuzzy_matching_limit = 70
-let g:fuzzy_ceiling=20000               " file count limit to search
-
-" Add what to ignore in the fuzzy search
-let g:fuzzy_ignore = "*.png;*.PNG;*.JPG;*.jpg;*.GIF;*.gif"
-let g:fuzzy_ignore = "*.ogg;*.OGG;*.ogv;*.OGV;*.mkv;*.MKV"
-let g:fuzzy_ignore = "*.mp3;*.mp3;*.mp4;*.MP4;*.avi;*.AVI;*.wma;*.WMA;*.wmv;*.WMV"
-let g:fuzzy_ignore = "*.flv;*.FLV;*.mov;*.MOV;*.pdf;*.PDF"
-let g:fuzzy_ignore = "*.zip;*.ZIP;*.tar;*.7z;*.gz;*.bz2"
-
-map <leader>t :FuzzyFinderTextMate<CR>
-map <leader>b :FuzzyFinderBuffer<CR>
-
 " Set keys to toggle Scratch buffer
 function! ToggleScratch()
   if expand('%') == g:ScratchBufferName
@@ -113,8 +98,8 @@ endfunction
 map <leader>s :call ToggleScratch()<CR>
 
 " Enable code folding by syntax and disable folding by default
-setlocal foldmethod=syntax
-setlocal nofoldenable
+"setlocal foldmethod=syntax
+"setlocal nofoldenable
 
 " Turn off rails related things in statusbar
 let g:rails_statusline=0
@@ -144,3 +129,75 @@ let vala_no_tab_space_error = 1
 
 " Set color scheme
 colorscheme peaksea
+
+" insoul
+"colorscheme slate
+
+set foldmethod=syntax
+set nofoldenable
+
+autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
+autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
+autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+
+autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
+autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
+autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
+
+set backupdir=~/.vimtemp/backup
+set directory=~/.vimtemp/swap
+let g:NERDTreeQuitOnOpen=1
+map <Leader>ff :FufFile **/<CR>
+map <leader>fb :FufBuffer<CR>
+map <leader>ft :FufTag<CR>
+
+let g:miniBufExplMapWindowNavVim=1
+let g:miniBufExplMapWindowNavArrows=1
+let g:miniBufExplMapCTabSwitchBufs=1
+let g:miniBufExplModSelTarget=1 
+map <Leader>m :TMiniBufExplorer<CR>
+map <Leader>, :b!#<CR>
+map <Leader>1 :b!1<CR>
+map <Leader>2 :b!2<CR>
+map <Leader>3 :b!3<CR>
+map <Leader>4 :b!4<CR>
+map <Leader>5 :b!5<CR>
+map <Leader>6 :b!6<CR>
+map <Leader>7 :b!7<CR>
+map <Leader>8 :b!8<CR>
+map <Leader>9 :b!9<CR>
+map <Leader>0 :b!10<CR>
+map <Leader>01 :b!1<CR>
+map <Leader>02 :b!2<CR>
+map <Leader>03 :b!3<CR>
+map <Leader>04 :b!4<CR>
+map <Leader>05 :b!5<CR>
+map <Leader>06 :b!6<CR>
+map <Leader>07 :b!7<CR>
+map <Leader>08 :b!8<CR>
+map <Leader>09 :b!9<CR>
+map <Leader>10 :b!10<CR>
+map <Leader>11 :b!11<CR>
+map <Leader>12 :b!12<CR>
+map <Leader>13 :b!13<CR>
+map <Leader>14 :b!14<CR>
+map <Leader>15 :b!15<CR>
+map <Leader>16 :b!16<CR>
+map <Leader>17 :b!17<CR>
+map <Leader>18 :b!18<CR>
+map <Leader>19 :b!19<CR>
+map <Leader>20 :b!20<CR>
+map <Leader>21 :b!21<CR>
+map <Leader>22 :b!22<CR>
+map <Leader>23 :b!23<CR>
+map <Leader>24 :b!24<CR>
+map <Leader>25 :b!25<CR>
+map <Leader>26 :b!26<CR>
+map <Leader>27 :b!27<CR>
+map <Leader>28 :b!28<CR>
+map <Leader>29 :b!29<CR>
+map <Leader>30 :b!30<CR>
+map <Leader>31 :b!31<CR>
+map <Leader>32 :b!32<CR>
+map <Leader>33 :b!33<CR>

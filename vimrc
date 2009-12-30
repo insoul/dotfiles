@@ -102,7 +102,7 @@ map <leader>s :call ToggleScratch()<CR>
 "setlocal nofoldenable
 
 " Turn off rails related things in statusbar
-let g:rails_statusline=0
+"let g:rails_statusline=0
 
 " Remove highlighting search results
 map <silent> <leader>nh :nohls <CR>
@@ -135,6 +135,7 @@ colorscheme peaksea
 
 set foldmethod=syntax
 set nofoldenable
+set hidden " do not lose undo history when move buffer
 
 autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
@@ -168,36 +169,36 @@ map <Leader>7 :b!7<CR>
 map <Leader>8 :b!8<CR>
 map <Leader>9 :b!9<CR>
 map <Leader>0 :b!10<CR>
-map <Leader>01 :b!1<CR>
-map <Leader>02 :b!2<CR>
-map <Leader>03 :b!3<CR>
-map <Leader>04 :b!4<CR>
-map <Leader>05 :b!5<CR>
-map <Leader>06 :b!6<CR>
-map <Leader>07 :b!7<CR>
-map <Leader>08 :b!8<CR>
-map <Leader>09 :b!9<CR>
-map <Leader>10 :b!10<CR>
-map <Leader>11 :b!11<CR>
-map <Leader>12 :b!12<CR>
-map <Leader>13 :b!13<CR>
-map <Leader>14 :b!14<CR>
-map <Leader>15 :b!15<CR>
-map <Leader>16 :b!16<CR>
-map <Leader>17 :b!17<CR>
-map <Leader>18 :b!18<CR>
-map <Leader>19 :b!19<CR>
-map <Leader>20 :b!20<CR>
-map <Leader>21 :b!21<CR>
-map <Leader>22 :b!22<CR>
-map <Leader>23 :b!23<CR>
-map <Leader>24 :b!24<CR>
-map <Leader>25 :b!25<CR>
-map <Leader>26 :b!26<CR>
-map <Leader>27 :b!27<CR>
-map <Leader>28 :b!28<CR>
-map <Leader>29 :b!29<CR>
-map <Leader>30 :b!30<CR>
-map <Leader>31 :b!31<CR>
-map <Leader>32 :b!32<CR>
-map <Leader>33 :b!33<CR>
+"map <Leader>01 :b!1<CR>
+"map <Leader>02 :b!2<CR>
+"map <Leader>03 :b!3<CR>
+"map <Leader>04 :b!4<CR>
+"map <Leader>05 :b!5<CR>
+"map <Leader>06 :b!6<CR>
+"map <Leader>07 :b!7<CR>
+"map <Leader>08 :b!8<CR>
+"map <Leader>09 :b!9<CR>
+"map <Leader>10 :b!10<CR>
+"map <Leader>11 :b!11<CR>
+"map <Leader>12 :b!12<CR>
+"map <Leader>13 :b!13<CR>
+"map <Leader>14 :b!14<CR>
+"map <Leader>15 :b!15<CR>
+"map <Leader>16 :b!16<CR>
+"map <Leader>17 :b!17<CR>
+"map <Leader>18 :b!18<CR>
+"map <Leader>19 :b!19<CR>
+"map <Leader>20 :b!20<CR>
+"map <Leader>21 :b!21<CR>
+"map <Leader>22 :b!22<CR>
+"map <Leader>23 :b!23<CR>
+"map <Leader>24 :b!24<CR>
+"map <Leader>25 :b!25<CR>
+"map <Leader>26 :b!26<CR>
+"map <Leader>27 :b!27<CR>
+"map <Leader>28 :b!28<CR>
+"map <Leader>29 :b!29<CR>
+"map <Leader>30 :b!30<CR>
+"map <Leader>31 :b!31<CR>
+"map <Leader>32 :b!32<CR>
+"map <Leader>33 :b!33<CR>

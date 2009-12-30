@@ -149,9 +149,9 @@ autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
 set backupdir=~/.vimtemp/backup
 set directory=~/.vimtemp/swap
 let g:NERDTreeQuitOnOpen=1
-map <Leader>ff :FufFile **/<CR>
-map <leader>fb :FufBuffer<CR>
-map <leader>ft :FufTag<CR>
+map <Leader>ff :FuzzyFinderFile \*\*\/<CR>
+map <leader>fb :FuzzyFinderBuffer<CR>
+map <leader>ft :FuzzyFinderTag<CR>
 
 let g:miniBufExplMapWindowNavVim=1
 let g:miniBufExplMapWindowNavArrows=1

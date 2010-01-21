@@ -133,8 +133,9 @@ colorscheme peaksea
 " insoul
 "colorscheme slate
 
-set foldmethod=syntax
-set nofoldenable
+"set foldmethod=syntax " this options is very slow at large size source file
+"set nofoldenable
+
 set hidden " do not lose undo history when move buffer
 
 autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete

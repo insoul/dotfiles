@@ -154,6 +154,9 @@ map <Leader>ff :FuzzyFinderFile \*\*\/<CR>
 map <leader>fb :FuzzyFinderBuffer<CR>
 map <leader>ft :FuzzyFinderTag<CR>
 
+nnoremap <silent> <F3> :Rgrep<CR>
+let Grep_Default_Filelist='*.r*'
+
 let g:miniBufExplMapWindowNavVim=1
 let g:miniBufExplMapWindowNavArrows=1
 let g:miniBufExplMapCTabSwitchBufs=1

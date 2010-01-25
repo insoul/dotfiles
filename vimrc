@@ -161,6 +161,12 @@ let g:miniBufExplMapWindowNavVim=1
 let g:miniBufExplMapWindowNavArrows=1
 let g:miniBufExplMapCTabSwitchBufs=1
 let g:miniBufExplModSelTarget=1 
+
+map <C-Up> :tabn<CR>
+map <C-Down> :tabp<CR>
+map <C-Right> :bn<CR>
+map <C-Left> :bp<CR>
+
 map <Leader>m :TMiniBufExplorer<CR>
 map <Leader>, :b!#<CR>
 map <Leader>1 :b!1<CR>

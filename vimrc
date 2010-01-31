@@ -170,7 +170,18 @@ map <leader>ft :FuzzyFinderTag<CR>
 nnoremap <silent> <F3> :Rgrep<CR>
 let Grep_Default_Filelist='*.r*'
 
-let g:miniBufExplMapWindowNavVim=1
+" set navigation buffer and tab
+map <C-h> :bp<CR>
+map <C-l> :bn<CR>
+imap <C-h> <ESC>:bp<CR>
+imap <C-l> <ESC>:bn<CR>
+map <C-j> :tabn<CR>
+map <C-k> :tabp<CR>
+imap <C-j> <ESC>:tabn<CR>
+imap <C-k> <ESC>:tabp<CR>
+
+" mini buffer explorer setup
+"let g:miniBufExplMapWindowNavVim=1  " Ctrl+[hjkl] act as navigation of window 
 let g:miniBufExplMapWindowNavArrows=1
 let g:miniBufExplMapCTabSwitchBufs=1
 let g:miniBufExplModSelTarget=1 

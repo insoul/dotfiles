@@ -12,11 +12,26 @@ set number              " show line numbers
 set smarttab            " smart tabulatin and backspace
 set title               " show title
 set incsearch           " find while typing
-set t_Co=256            " terminal uses 256 colors
 
 " Display a place holder character for tabs and trailing spaces
 set list
 set listchars=trail:⋅,nbsp:⋅,tab:▷⋅
+
+" Set color scheme
+colorscheme peaksea
+
+" os dependent settings
+let os = substitute(system('uname'), "\n", "", "")
+if os == "Darwin"
+elseif os == "Linux"
+endif
+
+" terminal dependent settings
+let term_app = substitute(system('echo $TERM_APP'), "\n", "", "")
+if term_app == "terminal"
+else
+  set t_Co=256            " terminal uses 256 colors
+endif
 
 " Only do this part when compiled with support for autocommands
 if has("autocmd")
@@ -127,8 +142,6 @@ let vala_comment_strings = 1
 let vala_space_errors = 1
 let vala_no_tab_space_error = 1
 
-" Set color scheme
-colorscheme peaksea
 
 " insoul
 "colorscheme slate

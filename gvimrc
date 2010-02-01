@@ -11,3 +11,9 @@ elseif os == "Linux"
   set backupdir=~/.vimtemp/gbackup
   set directory=~/.vimtemp/gswap
 endif
+
+" ruby setting
+let Grep_Default_Filelist='*.r* *.erb'
+
+" project directory
+cd ~/space/repository/me2day

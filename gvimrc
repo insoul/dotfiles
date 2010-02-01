@@ -5,5 +5,9 @@ set columns=80                          " characters per line = 80
 colorscheme railscasts_alt
 
 " insoul
-set backupdir=~/.vimtemp/gbackup
-set directory=~/.vimtemp/gswap
+if os == "Darwin"
+  cd space/repository/me2day
+elseif os == "Linux"
+  set backupdir=~/.vimtemp/gbackup
+  set directory=~/.vimtemp/gswap
+endif

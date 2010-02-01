@@ -12,11 +12,26 @@ set number              " show line numbers
 set smarttab            " smart tabulatin and backspace
 set title               " show title
 set incsearch           " find while typing
-set t_Co=256            " terminal uses 256 colors
 
 " Display a place holder character for tabs and trailing spaces
 set list
 set listchars=trail:⋅,nbsp:⋅,tab:▷⋅
+
+" Set color scheme
+colorscheme peaksea
+
+" os dependent settings
+let os = substitute(system('uname'), "\n", "", "")
+if os == "Darwin"
+elseif os == "Linux"
+endif
+
+" terminal dependent settings
+let term_app = substitute(system('echo $TERM_APP'), "\n", "", "")
+if term_app == "terminal"
+else
+  set t_Co=256            " terminal uses 256 colors
+endif
 
 " Only do this part when compiled with support for autocommands
 if has("autocmd")
@@ -127,8 +142,6 @@ let vala_comment_strings = 1
 let vala_space_errors = 1
 let vala_no_tab_space_error = 1
 
-" Set color scheme
-colorscheme peaksea
 
 " insoul
 "colorscheme slate
@@ -157,7 +170,18 @@ map <leader>ft :FuzzyFinderTag<CR>
 nnoremap <silent> <F3> :Rgrep<CR>
 let Grep_Default_Filelist='*.r*'
 
-let g:miniBufExplMapWindowNavVim=1
+" set navigation buffer and tab
+map <C-h> :bp<CR>
+map <C-l> :bn<CR>
+imap <C-h> <ESC>:bp<CR>
+imap <C-l> <ESC>:bn<CR>
+map <C-j> :tabn<CR>
+map <C-k> :tabp<CR>
+imap <C-j> <ESC>:tabn<CR>
+imap <C-k> <ESC>:tabp<CR>
+
+" mini buffer explorer setup
+"let g:miniBufExplMapWindowNavVim=1  " Ctrl+[hjkl] act as navigation of window 
 let g:miniBufExplMapWindowNavArrows=1
 let g:miniBufExplMapCTabSwitchBufs=1
 let g:miniBufExplModSelTarget=1 

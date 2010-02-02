@@ -1,3 +1,31 @@
+insoul added
+====================================
+Ack plugin added
+To use ack plugin, do this.
+
+In Mac OS X Leopard.
+   sudo port install p5-app-ack
+
+In Ubuntu
+   sudo apt-get install ack-grep
+
+Grep plugin added
+To use grep plugin, do this.
+   sudo port install findutils
+   sudo mv /usr/bin/xargs /usr/bin/xargs.origin
+   sudo ln -s /opt/local/bin/gxargs /usr/bin/xargs
+
+MiniBufferExplorer plugin added.
+
+FuzzyFinder plugin Downgraded.
+
+Imaps plugin removed.
+
+Minor key mapping changed.
+
+
+
+
 Gavim - Gaveen's Vim Configuration
 ====================================
 

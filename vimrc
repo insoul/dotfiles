@@ -20,19 +20,6 @@ set listchars=trail:⋅,nbsp:⋅,tab:▷⋅
 " Set color scheme
 colorscheme peaksea
 
-" os dependent settings
-let os = substitute(system('uname'), "\n", "", "")
-if os == "Darwin"
-elseif os == "Linux"
-endif
-
-" terminal dependent settings
-let term_app = substitute(system('echo $TERM_APP'), "\n", "", "")
-if term_app == "terminal"
-else
-  set t_Co=256            " terminal uses 256 colors
-endif
-
 " Only do this part when compiled with support for autocommands
 if has("autocmd")
   augroup fedora
@@ -159,10 +146,35 @@ autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
 autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
 autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
+autocmd FileType ruby,eruby let b:grep_filetype = "ruby"
 
 autocmd FileType java set tabstop=4
 autocmd FileType java set shiftwidth=4
 autocmd FileType java set nolist
+
+
+" os dependent settings
+let os = substitute(system('uname'), "\n", "", "")
+if os == "Darwin"
+elseif os == "Linux"
+endif
+
+" terminal dependent settings
+" terminal color setting
+let term_app = substitute(system('echo $TERM_APP'), "\n", "", "")
+if term_app == "terminal"
+else
+  set t_Co=256            " terminal uses 256 colors
+endif
+
+" quickfix list setting
+map <leader>qo :copen<CR>
+map <leader>qc :cclose<CR>
+map <leader>qp :colder<CR>
+map <leader>qn :cnewer<CR>
+
+" vim grep or ack setting
+nnoremap <silent> <F3> :Rgrep<CR>
 
 set backupdir=~/.vimtemp/backup
 set directory=~/.vimtemp/swap
@@ -171,18 +183,15 @@ map <Leader>ff :FuzzyFinderFile \*\*\/<CR>
 map <leader>fb :FuzzyFinderBuffer<CR>
 map <leader>ft :FuzzyFinderTag<CR>
 
-nnoremap <silent> <F3> :Rgrep<CR>
-let Grep_Default_Filelist='*.r*'
-
 " set navigation buffer and tab
-map <C-h> :bp<CR>
-map <C-l> :bn<CR>
-imap <C-h> <ESC>:bp<CR>
-imap <C-l> <ESC>:bn<CR>
-map <C-j> :tabn<CR>
-map <C-k> :tabp<CR>
-imap <C-j> <ESC>:tabn<CR>
-imap <C-k> <ESC>:tabp<CR>
+noremap <C-H> :bp!<CR>
+noremap <C-L> :bn!<CR>
+inoremap <C-H> <ESC>:bp!<CR>
+inoremap <C-L> <ESC>:bn!<CR>
+noremap <C-J> :tabn<CR>
+noremap <C-K> :tabp<CR>
+inoremap <C-J> <ESC>:tabn<CR>
+inoremap <C-K> <ESC>:tabp<CR>
 
 " mini buffer explorer setup
 "let g:miniBufExplMapWindowNavVim=1  " Ctrl+[hjkl] act as navigation of window 
@@ -197,46 +206,3 @@ map <C-Left> :bp<CR>
 
 map <Leader>m :TMiniBufExplorer<CR>
 map <Leader>, :b!#<CR>
-map <Leader>1 :b!1<CR>
-map <Leader>2 :b!2<CR>
-map <Leader>3 :b!3<CR>
-map <Leader>4 :b!4<CR>
-map <Leader>5 :b!5<CR>
-map <Leader>6 :b!6<CR>
-map <Leader>7 :b!7<CR>
-map <Leader>8 :b!8<CR>
-map <Leader>9 :b!9<CR>
-map <Leader>0 :b!10<CR>
-"map <Leader>01 :b!1<CR>
-"map <Leader>02 :b!2<CR>
-"map <Leader>03 :b!3<CR>
-"map <Leader>04 :b!4<CR>
-"map <Leader>05 :b!5<CR>
-"map <Leader>06 :b!6<CR>
-"map <Leader>07 :b!7<CR>
-"map <Leader>08 :b!8<CR>
-"map <Leader>09 :b!9<CR>
-"map <Leader>10 :b!10<CR>
-"map <Leader>11 :b!11<CR>
-"map <Leader>12 :b!12<CR>
-"map <Leader>13 :b!13<CR>
-"map <Leader>14 :b!14<CR>
-"map <Leader>15 :b!15<CR>
-"map <Leader>16 :b!16<CR>
-"map <Leader>17 :b!17<CR>
-"map <Leader>18 :b!18<CR>
-"map <Leader>19 :b!19<CR>
-"map <Leader>20 :b!20<CR>
-"map <Leader>21 :b!21<CR>
-"map <Leader>22 :b!22<CR>
-"map <Leader>23 :b!23<CR>
-"map <Leader>24 :b!24<CR>
-"map <Leader>25 :b!25<CR>
-"map <Leader>26 :b!26<CR>
-"map <Leader>27 :b!27<CR>
-"map <Leader>28 :b!28<CR>
-"map <Leader>29 :b!29<CR>
-"map <Leader>30 :b!30<CR>
-"map <Leader>31 :b!31<CR>
-"map <Leader>32 :b!32<CR>
-"map <Leader>33 :b!33<CR>

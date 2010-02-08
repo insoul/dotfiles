@@ -188,10 +188,10 @@ noremap <C-H> :bp!<CR>
 noremap <C-L> :bn!<CR>
 inoremap <C-H> <ESC>:bp!<CR>
 inoremap <C-L> <ESC>:bn!<CR>
-noremap <C-J> :tabn<CR>
-noremap <C-K> :tabp<CR>
-inoremap <C-J> <ESC>:tabn<CR>
-inoremap <C-K> <ESC>:tabp<CR>
+noremap <C-J> :tabp<CR>
+noremap <C-K> :tabn<CR>
+inoremap <C-J> <ESC>:tabp<CR>
+inoremap <C-K> <ESC>:tabn<CR>
 
 " mini buffer explorer setup
 "let g:miniBufExplMapWindowNavVim=1  " Ctrl+[hjkl] act as navigation of window 

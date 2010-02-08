@@ -33,6 +33,8 @@
 'snippets'	snipMate.txt	/*'snippets'*
 .snippet	snipMate.txt	/*.snippet*
 .snippets	snipMate.txt	/*.snippets*
+:Ack	ack.txt	/*:Ack*
+:AckAdd	ack.txt	/*:AckAdd*
 :CVSEdit	vcscommand.txt	/*:CVSEdit*
 :CVSEditors	vcscommand.txt	/*:CVSEditors*
 :CVSUnedit	vcscommand.txt	/*:CVSUnedit*
@@ -59,6 +61,8 @@
 :FuzzyFinderTag	fuzzyfinder.txt	/*:FuzzyFinderTag*
 :FuzzyFinderTagWithCursorWord	fuzzyfinder.txt	/*:FuzzyFinderTagWithCursorWord*
 :FuzzyFinderTaggedFile	fuzzyfinder.txt	/*:FuzzyFinderTaggedFile*
+:LAck	ack.txt	/*:LAck*
+:LAckAdd	ack.txt	/*:LAckAdd*
 :MatchDebug	matchit.txt	/*:MatchDebug*
 :NERDTree	NERD_tree.txt	/*:NERDTree*
 :NERDTreeFromBookmark	NERD_tree.txt	/*:NERDTreeFromBookmark*
@@ -500,6 +504,9 @@ VCSCommandVCSTypeOverride	vcscommand.txt	/*VCSCommandVCSTypeOverride*
 \vspace	latexhelp.txt	/*\\vspace*
 \width	latexhelp.txt	/*\\width*
 ]%	matchit.txt	/*]%*
+ack	ack.txt	/*ack*
+ack-author	ack.txt	/*ack-author*
+ack.txt	ack.txt	/*ack.txt*
 adding-bib-options	latex-suite.txt	/*adding-bib-options*
 alph	latexhelp.txt	/*alph*
 altkey-mappings	latex-suite.txt	/*altkey-mappings*

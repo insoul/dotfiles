@@ -182,6 +182,12 @@ let g:NERDTreeQuitOnOpen=1
 map <Leader>ff :FuzzyFinderFile \*\*\/<CR>
 map <leader>fb :FuzzyFinderBuffer<CR>
 map <leader>ft :FuzzyFinderTag<CR>
+let g:FuzzyFinderOptions = { 'Base':{}, 'Buffer':{}, 'File':{}, 'Dir':{},
+      \                      'MruFile':{}, 'MruCmd':{}, 'Bookmark':{},
+      \                      'Tag':{}, 'TaggedFile':{},
+      \                      'GivenFile':{}, 'GivenDir':{},
+      \                      'CallbackFile':{}, 'CallbackItem':{},}
+let g:FuzzyFinderOptions.Base.enumerating_limit = 30
 
 " set navigation buffer and tab
 noremap <C-H> :bp!<CR>

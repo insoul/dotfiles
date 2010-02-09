@@ -187,7 +187,7 @@ let g:FuzzyFinderOptions = { 'Base':{}, 'Buffer':{}, 'File':{}, 'Dir':{},
       \                      'Tag':{}, 'TaggedFile':{},
       \                      'GivenFile':{}, 'GivenDir':{},
       \                      'CallbackFile':{}, 'CallbackItem':{},}
-let g:FuzzyFinderOptions.Base.enumerating_limit = 30
+let g:FuzzyFinderOptions.Base.enumerating_limit = 40
 
 " set navigation buffer and tab
 noremap <C-H> :bp!<CR>

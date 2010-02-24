@@ -182,16 +182,15 @@ nnoremap <silent> <F3> :Rgrep<CR>
 set backupdir=~/.vimtemp/backup
 set directory=~/.vimtemp/swap
 let g:NERDTreeQuitOnOpen=1
-map <Leader>ff :FuzzyFinderFile \*\*\/<CR>
-map <leader>fb :FuzzyFinderBuffer<CR>
-map <leader>ft :FuzzyFinderTag<CR>
-let g:FuzzyFinderOptions = { 'Base':{}, 'Buffer':{}, 'File':{}, 'Dir':{},
-      \                      'MruFile':{}, 'MruCmd':{}, 'Bookmark':{},
-      \                      'Tag':{}, 'TaggedFile':{},
-      \                      'GivenFile':{}, 'GivenDir':{},
-      \                      'CallbackFile':{}, 'CallbackItem':{},}
-let g:FuzzyFinderOptions.Base.enumerating_limit = 40
-let g:FuzzyFinderOptions.Dir.excluded_path = 'tmp'
+map <Leader>ff :FufFile **/<CR>
+map <leader>fb :FufBuffer<CR>
+map <leader>ft :FufTag<CR>
+map <leader>fg :FufTaggedFile<CR>
+map <leader>fq :FufQuickfix<CR>
+map <leader>fc :FufRenewCache<CR>
+let g:fuf_enumeratingLimit = 30
+let g:fuf_dir_exclude = '\v(^|[/\\])\.(hg|git|bzr)($|[/\\])'
+"let g:fuf_reuseWindow = 0
 
 " set navigation buffer and tab
 noremap <C-H> :bp!<CR>

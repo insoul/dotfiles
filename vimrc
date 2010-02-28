@@ -203,9 +203,10 @@ inoremap <C-K> <ESC>:tabn<CR>
 
 " mini buffer explorer setup
 "let g:miniBufExplMapWindowNavVim=1  " Ctrl+[hjkl] act as navigation of window 
+"let g:miniBufExplMapCTabSwitchBufs=1
 let g:miniBufExplMapWindowNavArrows=1
-let g:miniBufExplMapCTabSwitchBufs=1
 let g:miniBufExplModSelTarget=1 
+let g:miniBufExplorerMoreThanOne = 2
 let g:miniBufExplSplitBelow=1  " Put mini buffer explorer window below, because fuzzyfinder window
 map <Leader>m :TMiniBufExplorer<CR>
 map <Leader>, :b!#<CR>

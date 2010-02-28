@@ -1244,7 +1244,7 @@ function! <SID>AutoUpdate(delBufNum)
   " this allows us to stop updates on startup.
   if g:miniBufExplorerAutoUpdate == 1
     " Only show MiniBufExplorer if we have a real buffer
-    if ((g:miniBufExplorerMoreThanOne == 0) || (bufnr('%') != -1 && bufname('%') != ""))
+    if ((g:miniBufExplorerMoreThanOne == 0) || (bufnr('-') != -1 && bufname('-') != ""))
       if <SID>HasEligibleBuffers(a:delBufNum) == 1
         " if we don't have a window then create one
         let l:bufnr = <SID>FindWindow('-MiniBufExplorer-', 0)

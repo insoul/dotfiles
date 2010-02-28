@@ -190,7 +190,6 @@ map <leader>fq :FufQuickfix<CR>
 map <leader>fc :FufRenewCache<CR>
 let g:fuf_enumeratingLimit = 30
 let g:fuf_dir_exclude = '\v(^|[/\\])\.(hg|git|bzr)($|[/\\])'
-"let g:fuf_reuseWindow = 0
 
 " set navigation buffer and tab
 noremap <C-H> :bp!<CR>
@@ -207,5 +206,6 @@ inoremap <C-K> <ESC>:tabn<CR>
 let g:miniBufExplMapWindowNavArrows=1
 let g:miniBufExplMapCTabSwitchBufs=1
 let g:miniBufExplModSelTarget=1 
+let g:miniBufExplSplitBelow=1  " Put mini buffer explorer window below, because fuzzyfinder window
 map <Leader>m :TMiniBufExplorer<CR>
 map <Leader>, :b!#<CR>

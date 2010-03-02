@@ -146,6 +146,9 @@ autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
 autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
 autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
+autocmd FileType ruby,eruby set tabstop=2
+autocmd FileType ruby,eruby set shiftwidth=2
+autocmd FileType ruby,eruby set expandtab
 autocmd FileType ruby,eruby let b:grep_filetype = "ruby"
 
 autocmd FileType java set tabstop=4
@@ -188,7 +191,8 @@ let g:FuzzyFinderOptions = { 'Base':{}, 'Buffer':{}, 'File':{}, 'Dir':{},
       \                      'Tag':{}, 'TaggedFile':{},
       \                      'GivenFile':{}, 'GivenDir':{},
       \                      'CallbackFile':{}, 'CallbackItem':{},}
-let g:FuzzyFinderOptions.Base.enumerating_limit = 30
+let g:FuzzyFinderOptions.Base.enumerating_limit = 40
+let g:FuzzyFinderOptions.Dir.excluded_path = 'tmp'
 
 " set navigation buffer and tab
 noremap <C-H> :bp!<CR>

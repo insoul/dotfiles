@@ -175,6 +175,7 @@ map <leader>qn :cnewer<CR>
 
 " vim grep or ack setting
 nnoremap <silent> <F3> :Rgrep<CR>
+let Grep_Default_Filelist='*.sh *.plx *.rb *.rhtml *.erb *.java'
 
 set backupdir=~/.vimtemp/backup
 set directory=~/.vimtemp/swap

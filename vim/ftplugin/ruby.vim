@@ -228,3 +228,7 @@ endfunction
 "
 
 " vim: nowrap sw=2 sts=2 ts=8 ff=unix:
+
+
+noremap <silent> <buffer> ]t /\(^\s*private\s*$\<Bar>^\s*public\s*$\<Bar>^\s*protected\s*$\)<CR>
+noremap <silent> <buffer> [t ?\(^\s*private\s*$\<Bar>^\s*public\s*$\<Bar>^\s*protected\s*$\)<CR>

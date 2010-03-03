@@ -194,6 +194,21 @@ let g:FuzzyFinderOptions = { 'Base':{}, 'Buffer':{}, 'File':{}, 'Dir':{},
 let g:FuzzyFinderOptions.Base.enumerating_limit = 40
 let g:FuzzyFinderOptions.Dir.excluded_path = 'tmp'
 
+" TagList
+let g:ctags_statusline=1            " display function name in status bar
+let generate_tags=1                 " automatically start script
+let Tlist_Use_Horiz_Window=0        " display taglist results in a vertical window
+nnoremap <leader>t :TlistToggle<CR>
+let Tlist_Use_Right_Window=1
+let Tlist_Compact_Format=1
+let Tlist_Exit_OnlyWindow=1
+let Tlist_GainFocus_On_ToggleOpen=0
+let Tlist_File_Fold_Auto_Close=1
+let Tlist_Auto_Highlight_Tag=1
+let Tlist_Highlight_Tag_On_BufEnter=1
+let Tlist_Show_Menu=1
+let Tlist_Sort_Type="name"
+
 " set navigation buffer and tab
 noremap <C-H> :bp!<CR>
 noremap <C-L> :bn!<CR>
@@ -217,3 +232,6 @@ map <C-Left> :bp<CR>
 
 map <Leader>m :TMiniBufExplorer<CR>
 map <Leader>, :b!#<CR>
+
+" favorites
+map <leader>c <C-W>c

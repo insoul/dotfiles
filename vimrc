@@ -178,6 +178,7 @@ map <leader>qn :cnewer<CR>
 
 " vim grep or ack setting
 nnoremap <silent> <F3> :Rgrep<CR>
+let Grep_Default_Filelist='*.sh *.plx *.rb *.rhtml *.erb *.java'
 
 set backupdir=~/.vimtemp/backup
 set directory=~/.vimtemp/swap
@@ -190,6 +191,21 @@ map <leader>fq :FufQuickfix<CR>
 map <leader>fc :FufRenewCache<CR>
 let g:fuf_enumeratingLimit = 30
 let g:fuf_dir_exclude = '\v(^|[/\\])\.(hg|git|bzr)($|[/\\])'
+
+" TagList
+let g:ctags_statusline=1            " display function name in status bar
+let generate_tags=1                 " automatically start script
+let Tlist_Use_Horiz_Window=0        " display taglist results in a vertical window
+nnoremap <leader>t :TlistToggle<CR>
+let Tlist_Use_Right_Window=1
+let Tlist_Compact_Format=1
+let Tlist_Exit_OnlyWindow=1
+let Tlist_GainFocus_On_ToggleOpen=0
+let Tlist_File_Fold_Auto_Close=1
+let Tlist_Auto_Highlight_Tag=1
+let Tlist_Highlight_Tag_On_BufEnter=1
+let Tlist_Show_Menu=1
+let Tlist_Sort_Type="name"
 
 " set navigation buffer and tab
 noremap <C-H> :bp!<CR>
@@ -208,5 +224,14 @@ let g:miniBufExplMapWindowNavArrows=1
 let g:miniBufExplModSelTarget=1 
 let g:miniBufExplorerMoreThanOne = 2
 let g:miniBufExplSplitBelow=1  " Put mini buffer explorer window below, because fuzzyfinder window
+
+map <C-Up> :tabn<CR>
+map <C-Down> :tabp<CR>
+map <C-Right> :bn<CR>
+map <C-Left> :bp<CR>
+
 map <Leader>m :TMiniBufExplorer<CR>
 map <Leader>, :b!#<CR>
+
+" favorites
+map <leader>c <C-W>c

@@ -1,4 +1,4 @@
-set guifont=DejaVu\ Sans\ Mono\ 12      " set font
+set guifont=DejaVu\ Sans\ Mono\ 10      " set font
 set columns=80                          " characters per line = 80
 "set guioptions-=T                       " no toolbar
 

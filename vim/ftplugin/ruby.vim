@@ -106,6 +106,8 @@ if !exists("g:no_plugin_maps") && !exists("g:no_ruby_maps")
   noremap <silent> <buffer> ]m :<C-U>call <SID>searchsyn('\<def\>','rubyDefine','')<CR>
   noremap <silent> <buffer> [M :<C-U>call <SID>searchsyn('\<end\>','rubyDefine','b')<CR>
   noremap <silent> <buffer> ]M :<C-U>call <SID>searchsyn('\<end\>','rubyDefine','')<CR>
+  noremap <silent> <buffer> [t ?\(^\s*private\s*$\<Bar>^\s*public\s*$\<Bar>^\s*protected\s*$\)<CR>
+  noremap <silent> <buffer> ]t /\(^\s*private\s*$\<Bar>^\s*public\s*$\<Bar>^\s*protected\s*$\)<CR>
 
   noremap <silent> <buffer> [[ :<C-U>call <SID>searchsyn('\<\%(class\<Bar>module\)\>','rubyModule\<Bar>rubyClass','b')<CR>
   noremap <silent> <buffer> ]] :<C-U>call <SID>searchsyn('\<\%(class\<Bar>module\)\>','rubyModule\<Bar>rubyClass','')<CR>
@@ -228,3 +230,5 @@ endfunction
 "
 
 " vim: nowrap sw=2 sts=2 ts=8 ff=unix:
+
+

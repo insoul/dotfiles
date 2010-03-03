@@ -206,6 +206,7 @@ let Tlist_Auto_Highlight_Tag=1
 let Tlist_Highlight_Tag_On_BufEnter=1
 let Tlist_Show_Menu=1
 let Tlist_Sort_Type="name"
+let Tlist_Inc_Winwidth=1
 
 " set navigation buffer and tab
 noremap <C-H> :bp!<CR>

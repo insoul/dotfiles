@@ -200,7 +200,7 @@ nnoremap <leader>t :TlistToggle<CR>
 let Tlist_Use_Right_Window=1
 let Tlist_Compact_Format=1
 let Tlist_Exit_OnlyWindow=1
-let Tlist_GainFocus_On_ToggleOpen=0
+let Tlist_GainFocus_On_ToggleOpen=1
 let Tlist_File_Fold_Auto_Close=1
 let Tlist_Auto_Highlight_Tag=1
 let Tlist_Highlight_Tag_On_BufEnter=1

@@ -233,6 +233,3 @@ map <C-Left> :bp<CR>
 
 map <Leader>m :TMiniBufExplorer<CR>
 map <Leader>, :b!#<CR>
-
-" favorites
-map <leader>c <C-W>c

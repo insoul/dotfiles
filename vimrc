@@ -178,7 +178,7 @@ map <leader>qn :cnewer<CR>
 
 " vim grep or ack setting
 nnoremap <silent> <F3> :Rgrep<CR>
-let Grep_Default_Filelist='*.sh *.plx *.rb *.rhtml *.erb *.java'
+let Grep_Default_Filelist='*.sh *.plx *.rb *.rhtml *.erb *.java *.js'
 
 set backupdir=~/.vimtemp/backup
 set directory=~/.vimtemp/swap
@@ -233,3 +233,7 @@ map <C-Left> :bp<CR>
 
 map <Leader>m :TMiniBufExplorer<CR>
 map <Leader>, :b!#<CR>
+
+if filereadable(expand("~/.vimrc.local"))
+  source ~/.vimrc.local
+endif

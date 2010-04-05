@@ -183,12 +183,12 @@ let Grep_Default_Filelist='*.sh *.plx *.rb *.rhtml *.erb *.java *.js'
 set backupdir=~/.vimtemp/backup
 set directory=~/.vimtemp/swap
 let g:NERDTreeQuitOnOpen=1
-map <Leader>ff :FufFile **/<CR>
-map <leader>fb :FufBuffer<CR>
-map <leader>ft :FufTag<CR>
-map <leader>fg :FufTaggedFile<CR>
-map <leader>fq :FufQuickfix<CR>
-map <leader>fc :FufRenewCache<CR>
+map <Leader>ff :FuzzyFinderFile \*\*\/<CR>
+map <leader>fb :FuzzyFinderBuffer<CR>
+map <leader>ft :FuzzyFinderTag<CR>
+map <leader>fg :FuzzyFinderTaggedFile<CR>
+"map <leader>fq :FufQuickfix<CR>
+map <leader>fc :FuzzyFinderRenewCache<CR>
 let g:fuf_enumeratingLimit = 30
 let g:fuf_dir_exclude = '\v(^|[/\\])\.(hg|git|bzr)($|[/\\])'
 

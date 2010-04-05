@@ -224,7 +224,7 @@ inoremap <C-K> <ESC>:tabn<CR>
 let g:miniBufExplMapWindowNavArrows=1
 let g:miniBufExplModSelTarget=1 
 let g:miniBufExplorerMoreThanOne = 2
-let g:miniBufExplSplitBelow=1  " Put mini buffer explorer window below, because fuzzyfinder window
+"let g:miniBufExplSplitBelow=1  " Put mini buffer explorer window below, because fuzzyfinder window
 
 map <C-Up> :tabn<CR>
 map <C-Down> :tabp<CR>

@@ -189,8 +189,16 @@ map <leader>ft :FuzzyFinderTag<CR>
 map <leader>fg :FuzzyFinderTaggedFile<CR>
 "map <leader>fq :FufQuickfix<CR>
 map <leader>fc :FuzzyFinderRenewCache<CR>
-let g:fuf_enumeratingLimit = 30
 let g:fuf_dir_exclude = '\v(^|[/\\])\.(hg|git|bzr)($|[/\\])'
+" Initializes g:FuzzyFinderOptions.
+let g:FuzzyFinderOptions = { 'Base':{}, 'Buffer':{}, 'File':{}, 'Dir':{},
+      \                      'MruFile':{}, 'MruCmd':{}, 'Bookmark':{},
+      \                      'Tag':{}, 'TaggedFile':{},
+      \                      'GivenFile':{}, 'GivenDir':{}, 'GivenCmd':{},
+      \                      'CallbackFile':{}, 'CallbackItem':{}, }
+let g:FuzzyFinderOptions.Base.enumerating_limit  = 30
+
+
 
 " TagList
 let g:ctags_statusline=1            " display function name in status bar

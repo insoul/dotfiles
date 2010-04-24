@@ -241,6 +241,7 @@ map <C-Left> :bp<CR>
 
 map <Leader>m :TMiniBufExplorer<CR>
 map <Leader>, :b!#<CR>
+map <Leader>1 :b!1<CR>
 
 if filereadable(expand("~/.vimrc.local"))
   source ~/.vimrc.local

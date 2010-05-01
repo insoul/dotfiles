@@ -13,7 +13,7 @@ elseif os == "Linux"
 endif
 
 " ruby setting
-let Grep_Default_Filelist='*.r* *.erb'
+let Grep_Default_Filelist='*.rb *.rhtml *.erb *.js *.css *.html'
 
 " project directory
 cd ~/space/repository/me2day

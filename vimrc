@@ -179,8 +179,8 @@ map <leader>qn :cnewer<CR>
 " vim grep or ack setting
 nnoremap <silent> <F3> :Rgrep<CR>
 
-set backupdir=~/.vimtemp/backup
-set directory=~/.vimtemp/swap
+set backupdir=~/.vim/tmp/backup
+set directory=~/.vim/tmp/swap
 let g:NERDTreeQuitOnOpen=1
 map <Leader>ff :FuzzyFinderFile \*\*\/<CR>
 map <leader>fb :FuzzyFinderBuffer<CR>

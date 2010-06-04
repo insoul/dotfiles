@@ -140,7 +140,11 @@ set hidden " do not lose undo history when move buffer
 
 autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType javascript set tabstop=2
+autocmd FileType javascript set shiftwidth=2
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
+autocmd FileType html set tabstop=2
+autocmd FileType html set shiftwidth=2
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 
 autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1

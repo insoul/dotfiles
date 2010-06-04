@@ -8,8 +8,8 @@ colorscheme railscasts_alt
 if os == "Darwin"
   cd space/repository/me2day
 elseif os == "Linux"
-  set backupdir=~/.vimtemp/gbackup
-  set directory=~/.vimtemp/gswap
+  set backupdir=~/.vim/tmp/gbackup
+  set directory=~/.vim/tmp/gswap
 endif
 
 " ruby setting

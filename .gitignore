@@ -2,3 +2,5 @@ cheats.txt
 vim/.netrwhist
 vim/tmp/swap/*
 vim/tmp/backup/*
+vim/tmp/gswap/*
+vim/tmp/gbackup/*

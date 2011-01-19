@@ -99,6 +99,7 @@ endfunction
 
 map <leader>s :call ToggleScratch()<CR>
 
+" this options is very slow at large size source file
 " Enable code folding by syntax and disable folding by default
 "setlocal foldmethod=syntax
 "setlocal nofoldenable
@@ -130,12 +131,6 @@ let vala_space_errors = 1
 let vala_no_tab_space_error = 1
 
 
-" insoul
-"colorscheme slate
-
-"set foldmethod=syntax " this options is very slow at large size source file
-"set nofoldenable
-
 set hidden " do not lose undo history when move buffer
 
 autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
@@ -163,6 +158,10 @@ autocmd FileType java set nolist
 " os dependent settings
 let os = substitute(system('uname'), "\n", "", "")
 if os == "Darwin"
+  if $VIM_CRONTAB == "true"
+    set nobackup
+    set nowritebackup
+  endif
 elseif os == "Linux"
 endif
 

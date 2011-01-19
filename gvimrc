@@ -6,7 +6,7 @@ colorscheme railscasts_alt
 
 " insoul
 if os == "Darwin"
-  cd space/repository/me2day
+  cd space/git/me2day
 elseif os == "Linux"
   set backupdir=~/.vim/tmp/gbackup
   set directory=~/.vim/tmp/gswap
@@ -16,4 +16,4 @@ endif
 let Grep_Default_Filelist='*.rb *.rhtml *.erb *.js *.css *.html'
 
 " project directory
-cd ~/space/repository/me2day
+cd ~/space/git/me2day

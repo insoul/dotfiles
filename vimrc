@@ -17,9 +17,6 @@ set incsearch           " find while typing
 set list
 set listchars=trail:⋅,nbsp:⋅,tab:▷⋅
 
-" Set color scheme
-colorscheme peaksea
-
 " Only do this part when compiled with support for autocommands
 if has("autocmd")
   augroup fedora
@@ -169,8 +166,10 @@ endif
 " terminal color setting
 let term_app = substitute(system('echo $TERM_APP'), "\n", "", "")
 if term_app == "terminal"
+  colorscheme default
 else
   set t_Co=256            " terminal uses 256 colors
+  colorscheme xoria256    " Set color scheme
 endif
 
 " quickfix list setting

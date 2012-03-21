@@ -168,8 +168,8 @@ let term_app = substitute(system('echo $TERM_APP'), "\n", "", "")
 if term_app == "terminal"
   colorscheme railscasts_alt
 else
-  set t_Co=256            " terminal uses 256 colors
-  colorscheme xoria256    " Set color scheme
+  set t_Co=256                 " terminal uses 256 colors
+  colorscheme jellybeans
 endif
 
 " quickfix list setting

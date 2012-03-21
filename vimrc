@@ -166,7 +166,7 @@ endif
 " terminal color setting
 let term_app = substitute(system('echo $TERM_APP'), "\n", "", "")
 if term_app == "terminal"
-  colorscheme default
+  colorscheme railscasts_alt
 else
   set t_Co=256            " terminal uses 256 colors
   colorscheme xoria256    " Set color scheme

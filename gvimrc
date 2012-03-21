@@ -16,5 +16,4 @@ endif
 " ruby setting
 let Grep_Default_Filelist='*.rb *.rhtml *.erb *.js *.css *.html'
 
-" project directory
-cd ~/space/git/me2day
+cd ~/space

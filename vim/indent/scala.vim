@@ -1,0 +1,1 @@
+../../external/scala-dist/tool-support/src/vim/indent/scala.vim

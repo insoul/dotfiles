@@ -1,0 +1,1 @@
+../../external/scala-dist/tool-support/src/vim/plugin/31-create-scala.vim

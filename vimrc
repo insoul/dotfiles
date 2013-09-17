@@ -2,6 +2,8 @@ if v:lang =~ "utf8$" || v:lang =~ "UTF-8$"
    set fileencodings=ucs-bom,utf-8,latin1
 endif
 
+execute pathogen#infect()
+
 set nocompatible        " Use Vim defaults (much better!)
 set bs=indent,eol,start " allow backspacing over everything in insert mode
 set viminfo='20,\"50    " read/write a .viminfo file, don't store more

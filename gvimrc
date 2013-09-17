@@ -7,7 +7,6 @@ colorscheme railscasts_alt
 
 " insoul
 if os == "Darwin"
-  cd space/git/me2day
 elseif os == "Linux"
   set backupdir=~/.vim/tmp/gbackup
   set directory=~/.vim/tmp/gswap

@@ -1,0 +1,26 @@
+
+export PATH=/usr/local/bin:/usr/local/sbin:$PATH
+export PATH=/usr/local/mysql/bin:$PATH
+export PATH=~/.rbenv/bin:$PATH
+export PATH=~/.rbenv/shims:$PATH
+export CLICOLOR=1
+export LSCOLORS=exgxCxDxcxegedabagacad
+export SVN_EDITOR=vim
+#export TERM_APP=terminal
+
+alias pd='pushd'
+alias sd='dirs -v'
+alias crontab="VIM_CRONTAB=true crontab"
+alias grep='grep --color'
+#alias ls='ls --color'
+alias flush_dns='sudo killall -HUP mDNSResponder'
+alias bash="bash; source /Users/`whoami`/.bash_profile"
+alias b="bundle"
+
+[[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
+
+source ~/src/git/contrib/completion/git-completion.bash
+source ~/src/git-prompt/git-prompt.sh
+
+eval "$(rbenv init -)"
+

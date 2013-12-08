@@ -1,43 +1,29 @@
-insoul added
+My configuration files
+======================
+
+Mac OS X Mavericks
+Use brew as package management
+
+```
+mkdir -p ~/src
+git clone git@github.com:git/git.git ~/git
+git clone git@github.com:lvv/git-prompt.git ~/git-prompt
+brew install autojump
+```
+
+Use rbenv as ruby version management
+
+```
+git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
+```
+
+BASH
+======
+`cat "[[ -f path/to/bashrc.common ]] && . path/to/bashrc.common" > ~/.bash_profile`
+
+
+VIM
 ====================================
-Ack plugin added
-To use ack plugin, do this.
-
-In Mac OS X Leopard.
-   sudo port install p5-app-ack
-
-In Ubuntu
-   sudo apt-get install ack-grep
-
-Grep plugin added
-To use grep plugin, do this.
-   sudo port install findutils
-   sudo mv /usr/bin/xargs /usr/bin/xargs.origin
-   sudo ln -s /opt/local/bin/gxargs /usr/bin/xargs
-
-MiniBufferExplorer plugin added.
-
-FuzzyFinder plugin Downgraded.
-
-Imaps plugin removed.
-
-Minor key mapping changed.
-
-   gem install rcodetools
------------------------------------
-
-
-Gavim - Gaveen's Vim Configuration
-====================================
-
-This is the Vim configuration I actually use.
-
-I'm working on a Fedora Linux system. By default there's a very decent Vim
-configuration in Fedora. So I took the default global Vim configuration file
-in a Fedora 10 system and did the tweaks to get it to my liking. As you would
-have expected, a significant part of the vimrc is straight from Fedora. While
-some of the plugins are taken from vim.org, some are taken from the source.
-
 This is the current setting I use. If you plan to use this for your
 configuration, please note that you will need Ruby installed and in your path
 (for the fuzzy finder textmate plugin). Here are the plugins I use:
@@ -51,16 +37,27 @@ configuration, please note that you will need Ruby installed and in your path
   - Gist (make gits to gist.github.com)
   - VCS-Git (Git Distributed VCS support)
   - Matchit
+  - Ack
+  - Grep
+  - Imaps
+  - MiniBufferExplorer
   - and some more
-
-Vim 7.2 already has some great additional features like spell checking, word
-completion, etc. I'm only interested in maintaining this configuration for the
-Vim version I'm using, which happened to be 7.2 as of this writing.
 
 A few colorchemes are included, where some of them are directly from the
 default vim installation in Fedora. To get the best view of the color schemes
 t_Co=256 is set in the .vimrc file.
 
+To use grep plugin, do this.
+```
+sudo port install findutils
+sudo mv /usr/bin/xargs /usr/bin/xargs.origin
+sudo ln -s /opt/local/bin/gxargs /usr/bin/xargs
+```
+
+For ruby development helper tools,
+```
+gem install rcodetools
+```
 
 How to use this as your configuration
 ---------------------------------------

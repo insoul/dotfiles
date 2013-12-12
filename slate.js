@@ -28,6 +28,7 @@ var tboltLFull = S.op("move", {
   "width" : "screenSizeX",
   "height" : "screenSizeY"
 });
+
 var tboltLLeft = tboltLFull.dup({ "width" : "screenSizeX/3" });
 var tboltLMid = tboltLLeft.dup({ "x" : "screenOriginX+screenSizeX/3" });
 var tboltLRight = tboltLLeft.dup({ "x" : "screenOriginX+(screenSizeX*2/3)" });
@@ -37,6 +38,31 @@ var tboltLMidTop = tboltLMid.dup({ "height" : "screenSizeY/2" });
 var tboltLMidBot = tboltLMidTop.dup({ "y" : "screenOriginY+screenSizeY/2" });
 var tboltLRightTop = tboltLRight.dup({ "height" : "screenSizeY/2" });
 var tboltLRightBot = tboltLRightTop.dup({ "y" : "screenOriginY+screenSizeY/2" });
+
+S.log(Math.random());
+var dell = tboltLFull.dup({ "width" : "screenSizeX/2" });
+var dellL = dell;
+var dellM = dell.dup({ "x" : "screenSizeX/6" });
+var dellR = dell.dup({ "x" : "screenSizeX/2" });
+var dellLTop = dellL.dup({ "height" : "screenSizeY*2/3" });
+var dellLBot = dellLTop.dup({ "y" : "screenSizeY/3" });
+var dellMTop = dellM.dup({ "height" : "screenSizeY*2/3" });
+var dellMBot = dellMTop.dup({ "y" : "screenSizeY/3" });
+var dellRTop = dellR.dup({ "height" : "screenSize*2/3" });
+var dellRBot = dellRTop.dup({ "y" : "screenSize/3" });
+
+var dellwide = tboltLFull.dup({ "width" : "screenSizeX*4/7" });
+var dellwideL = dellwide;
+var dellwideM = dellwide.dup({ "x" : "screenSizeX/7" });
+var dellwideR = dellwide.dup({ "x" : "screenSizeX*3/7" });
+var dellwideLTop = dellwideL.dup({ "height" : "screenSizeY*2/3" });
+var dellwideLBot = dellwideLTop.dup({ "y" : "screenSizeY/3" });
+var dellwideMTop = dellwideM.dup({ "height" : "screenSizeY*2/3" });
+var dellwideMBot = dellwideMTop.dup({ "y" : "screenSizeY/3" });
+var dellwideRTop = dellwideR.dup({ "height" : "screenSize*2/3" });
+var dellwideRBot = dellwideRTop.dup({ "y" : "screenSize/3" });
+
+
 var tboltRFull = S.op("move", {
   "screen" : monTboltR,
   "x" : "screenOriginX",
@@ -54,6 +80,7 @@ var tboltRMidBot = tboltRMidTop.dup({ "y" : "screenOriginY+screenSizeY/2" });
 var tboltRRightTop = tboltRRight.dup({ "height" : "screenSizeY/2" });
 var tboltRRightBot = tboltRRightTop.dup({ "y" : "screenOriginY+screenSizeY/2" });
 
+
 // common layout hashes
 var lapMainHash = {
   "operations" : [lapMain],
@@ -62,7 +89,7 @@ var lapMainHash = {
 };
 var lapLeftHash = {
   "operations" : [lapLeft],
-	"ignore-fail": true,
+  "ignore-fail": true,
   "repeat" : true
 };
 var adiumHash = {
@@ -80,14 +107,19 @@ var iTermHash = {
   "sort-title" : true,
   "repeat" : true
 };
+var iTermHash2 = {
+  "operations" : dellLBot,
+  "repeat" : true
+}
+
 var genBrowserHash = function(regex) {
   return {
     "operations" : [function(windowObject) {
       var title = windowObject.title();
       if (title !== undefined && title.match(regex)) {
-        windowObject.doOperation(tboltLLeft);
+        windowObject.doOperation(dellLTop.dup({ "width" : "screenSizeX/3" }));
       } else {
-        windowObject.doOperation(lapMain);
+        windowObject.doOperation(dellM);
       }
     }],
     "ignore-fail" : true,
@@ -135,17 +167,50 @@ var oneMonitorLayout = S.lay("oneMonitor", {
   "Spotify" : lapMainHash
 });
 
+// 1 monitor layout with Dell 2560x1440
+var dellMonitorLayout = S.lay("dellMonitor", {
+  "Adium" : {
+    "operations" : [lapChat, tboltLLeftBot],
+    "ignore-fail" : true,
+    "title-order" : ["Contacts"],
+    "repeat-last" : true
+  },
+  "MacVim" : mvimHash,
+  "iTerm" : iTermHash2,
+  "Google Chrome" : genBrowserHash(/^Developer\sTools\s-\s.+$/),
+  "GitX" : {
+    "operations" : [tboltLLeftTop],
+    "repeat" : true
+  },
+  "Firefox" : genBrowserHash(/^Firebug\s-\s.+$/),
+  "Safari" : { "operations" : dellM, "repeat" : true},
+  "Spotify" : {
+    "operations" : [tboltRRightTop],
+    "repeat" : true
+  },
+  "IntelliJ IDEA" : { "operations" : dellwideR, "repeat" : true},
+  "Dash" : { "operations" : dellLTop },
+  "Sublime Text" : { "operations" : dellwideM, "repeat" : true},
+  "Terminal" : { "operations" : dellMBot, "repeat" : true},
+  "Sequel Pro" : { "operations" : dellMTop }
+});
+
+
+
 var twoMonitorLayout = oneMonitorLayout;
 
 // Defaults
 S.def(3, threeMonitorLayout);
 S.def(2, twoMonitorLayout);
-S.def(1, oneMonitorLayout);
+//S.def(1, oneMonitorLayout);
+S.def(["2880x1800"], oneMonitorLayout);
+S.def(["2560x1440"], dellMonitorLayout);
 
 // Layout Operations
 var threeMonitor = S.op("layout", { "name" : threeMonitorLayout });
 var twoMonitor = S.op("layout", { "name" : twoMonitorLayout });
 var oneMonitor = S.op("layout", { "name" : oneMonitorLayout });
+var dellMonitor = S.op("layout", { "name" : dellMonitorLayout });
 var universalLayout = function() {
   // Should probably make sure the resolutions match but w/e
   S.log("SCREEN COUNT: "+S.screenCount());
@@ -154,7 +219,11 @@ var universalLayout = function() {
   } else if (S.screenCount() === 2) {
     twoMonitor.run();
   } else if (S.screenCount() === 1) {
-    oneMonitor.run();
+    if (S.screenForRef(0).rect().width == 2560) {
+      dellMonitor.run();
+    } else {
+      oneMonitor.run();
+    }
   }
 };
 
@@ -162,7 +231,8 @@ var universalLayout = function() {
 S.bnda({
   // Layout Bindings
   "padEnter:ctrl" : universalLayout,
-  "space:ctrl" : universalLayout,
+  //"space:ctrl" : universalLayout,
+  "space:ctrl;alt;cmd" : universalLayout,
 
   // Basic Location Bindings
   "pad0:ctrl" : lapChat,
@@ -227,7 +297,7 @@ S.bnda({
 
   // Focus Bindings
   // NOTE: some of these may *not* work if you have not removed the expose/spaces/mission control bindings
-	/*
+  /*
   "l:cmd" : S.op("focus", { "direction" : "right" }),
   "h:cmd" : S.op("focus", { "direction" : "left" }),
   "k:cmd" : S.op("focus", { "direction" : "up" }),

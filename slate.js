@@ -121,6 +121,7 @@ var genBrowserHash = function(regex) {
       var title = windowObject.title();
       if (title !== undefined && title.match(regex)) {
         windowObject.doOperation(dellLTop.dup({ "width" : "screenSizeX/3" }));
+      } else if (title !== undefined && title.match(/벅스/)) {
       } else {
         windowObject.doOperation(dellwideLM);
       }
@@ -147,7 +148,7 @@ var threeMonitorLayout = S.lay("threeMonitor", {
     "repeat" : true
   },
   "Firefox" : genBrowserHash(/^Firebug\s-\s.+$/),
-  "Safari" : lapMainHash,
+  "Safari" : genBrowserHash(/^Web\sInspector/),
   "Spotify" : {
     "operations" : [tboltRRightTop],
     "repeat" : true
@@ -191,7 +192,7 @@ var dellMonitorLayout = S.lay("dellMonitor", {
     "repeat" : true
   },
   "Firefox" : genBrowserHash(/^Firebug\s-\s.+$/),
-  "Safari" : { "operations" : dellwideLM, "repeat" : true},
+  "Safari" : genBrowserHash(/^Web\sInspector/),
   "Spotify" : {
     "operations" : [tboltRRightTop],
     "repeat" : true

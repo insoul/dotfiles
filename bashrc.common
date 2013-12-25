@@ -16,6 +16,7 @@ alias grep='grep --color'
 alias flush_dns='sudo killall -HUP mDNSResponder'
 alias bash="bash; source /Users/`whoami`/.bash_profile"
 alias b="bundle"
+alias bx="bundle exec"
 
 [[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
 

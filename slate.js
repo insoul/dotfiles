@@ -53,10 +53,13 @@ var dellRBot = dellRTop.dup({ "y" : "screenSize/3" });
 
 var dellwide = tboltLFull.dup({ "width" : "screenSizeX*4/7" });
 var dellwideL = dellwide;
+var dellwideLM = dellwide.dup({ "x" : "screenSizeX/10" });
 var dellwideM = dellwide.dup({ "x" : "screenSizeX/7" });
 var dellwideR = dellwide.dup({ "x" : "screenSizeX*3/7" });
 var dellwideLTop = dellwideL.dup({ "height" : "screenSizeY*2/3" });
 var dellwideLBot = dellwideLTop.dup({ "y" : "screenSizeY/3" });
+var dellwideLMTop = dellwideLM.dup({ "height" : "screenSizeY*2/3" });
+var dellwideLMBot = dellwideLMTop.dup({ "y" : "screenSizeY/3" });
 var dellwideMTop = dellwideM.dup({ "height" : "screenSizeY*2/3" });
 var dellwideMBot = dellwideMTop.dup({ "y" : "screenSizeY/3" });
 var dellwideRTop = dellwideR.dup({ "height" : "screenSize*2/3" });
@@ -119,7 +122,7 @@ var genBrowserHash = function(regex) {
       if (title !== undefined && title.match(regex)) {
         windowObject.doOperation(dellLTop.dup({ "width" : "screenSizeX/3" }));
       } else {
-        windowObject.doOperation(dellM);
+        windowObject.doOperation(dellwideLM);
       }
     }],
     "ignore-fail" : true,
@@ -137,6 +140,7 @@ var threeMonitorLayout = S.lay("threeMonitor", {
   },
   "MacVim" : mvimHash,
   "iTerm" : iTermHash,
+  "Chrome" : genBrowserHash(/^Developer\sTools\s-\s.+$/),
   "Google Chrome" : genBrowserHash(/^Developer\sTools\s-\s.+$/),
   "GitX" : {
     "operations" : [tboltLLeftTop],
@@ -155,6 +159,8 @@ var oneMonitorLayout = S.lay("oneMonitor", {
   "Adium" : adiumHash,
   "MacVim" : lapMainHash,
   "iTerm" : lapLeftHash,
+  "Terminal" : lapLeftHash,
+  "Chrome" : lapMainHash,
   "Google Chrome" : lapMainHash,
   "Xcode" : lapMainHash,
   "GitX" : lapMainHash,
@@ -163,6 +169,7 @@ var oneMonitorLayout = S.lay("oneMonitor", {
   "Eclipse" : lapMainHash,
   "IntelliJ IDEA" : lapMainHash,
   "Sublime Text" : lapMainHash,
+  "TextMate" : lapLeftHash,
   "Dash" : lapMainHash,
   "Spotify" : lapMainHash
 });
@@ -177,13 +184,14 @@ var dellMonitorLayout = S.lay("dellMonitor", {
   },
   "MacVim" : mvimHash,
   "iTerm" : iTermHash2,
+  "Chrome" : genBrowserHash(/^Developer\sTools\s-\s.+$/),
   "Google Chrome" : genBrowserHash(/^Developer\sTools\s-\s.+$/),
   "GitX" : {
     "operations" : [tboltLLeftTop],
     "repeat" : true
   },
   "Firefox" : genBrowserHash(/^Firebug\s-\s.+$/),
-  "Safari" : { "operations" : dellM, "repeat" : true},
+  "Safari" : { "operations" : dellwideLM, "repeat" : true},
   "Spotify" : {
     "operations" : [tboltRRightTop],
     "repeat" : true
@@ -194,8 +202,6 @@ var dellMonitorLayout = S.lay("dellMonitor", {
   "Terminal" : { "operations" : dellMBot, "repeat" : true},
   "Sequel Pro" : { "operations" : dellMTop }
 });
-
-
 
 var twoMonitorLayout = oneMonitorLayout;
 
@@ -262,6 +268,7 @@ S.bnda({
 
   // Resize Bindings
   // NOTE: some of these may *not* work if you have not removed the expose/spaces/mission control bindings
+  /*
   "right:ctrl" : S.op("resize", { "width" : "+10%", "height" : "+0" }),
   "left:ctrl" : S.op("resize", { "width" : "-10%", "height" : "+0" }),
   "up:ctrl" : S.op("resize", { "width" : "+0", "height" : "-10%" }),
@@ -270,23 +277,29 @@ S.bnda({
   "left:alt" : S.op("resize", { "width" : "+10%", "height" : "+0", "anchor" : "bottom-right" }),
   "up:alt" : S.op("resize", { "width" : "+0", "height" : "+10%", "anchor" : "bottom-right" }),
   "down:alt" : S.op("resize", { "width" : "+0", "height" : "-10%", "anchor" : "bottom-right" }),
+  */
 
   // Push Bindings
   // NOTE: some of these may *not* work if you have not removed the expose/spaces/mission control bindings
+  /*
   "right:ctrl;shift" : S.op("push", { "direction" : "right", "style" : "bar-resize:screenSizeX/2" }),
   "left:ctrl;shift" : S.op("push", { "direction" : "left", "style" : "bar-resize:screenSizeX/2" }),
   "up:ctrl;shift" : S.op("push", { "direction" : "up", "style" : "bar-resize:screenSizeY/2" }),
   "down:ctrl;shift" : S.op("push", { "direction" : "down", "style" : "bar-resize:screenSizeY/2" }),
+  */
 
   // Nudge Bindings
   // NOTE: some of these may *not* work if you have not removed the expose/spaces/mission control bindings
+  /*
   "right:ctrl;alt" : S.op("nudge", { "x" : "+10%", "y" : "+0" }),
   "left:ctrl;alt" : S.op("nudge", { "x" : "-10%", "y" : "+0" }),
   "up:ctrl;alt" : S.op("nudge", { "x" : "+0", "y" : "-10%" }),
   "down:ctrl;alt" : S.op("nudge", { "x" : "+0", "y" : "+10%" }),
+  */
 
   // Throw Bindings
   // NOTE: some of these may *not* work if you have not removed the expose/spaces/mission control bindings
+  /*
   "pad1:ctrl;alt" : S.op("throw", { "screen" : "2", "width" : "screenSizeX", "height" : "screenSizeY" }),
   "pad2:ctrl;alt" : S.op("throw", { "screen" : "1", "width" : "screenSizeX", "height" : "screenSizeY" }),
   "pad3:ctrl;alt" : S.op("throw", { "screen" : "0", "width" : "screenSizeX", "height" : "screenSizeY" }),
@@ -294,6 +307,8 @@ S.bnda({
   "left:ctrl;alt;cmd" : S.op("throw", { "screen" : "left", "width" : "screenSizeX", "height" : "screenSizeY" }),
   "up:ctrl;alt;cmd" : S.op("throw", { "screen" : "up", "width" : "screenSizeX", "height" : "screenSizeY" }),
   "down:ctrl;alt;cmd" : S.op("throw", { "screen" : "down", "width" : "screenSizeX", "height" : "screenSizeY" }),
+  */
+  ";:ctrl;alt;cmd" : S.op("throw", { "screen" : "next" }),
 
   // Focus Bindings
   // NOTE: some of these may *not* work if you have not removed the expose/spaces/mission control bindings

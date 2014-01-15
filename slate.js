@@ -8,7 +8,7 @@ S.cfga({
 });
 
 // Monitors
-var monTboltL = "2560x1440";
+var monDell = "2560x1440";
 var monTboltR = "2";
 var monLaptop = "2880x1800";
 
@@ -22,7 +22,7 @@ var lapChat = S.op("corner", {
 var lapMain = lapChat.dup({ "direction" : "top-right", "width" : "7*screenSizeX/8" });
 var lapLeft = lapChat.dup({ "width" : "6*screenSizeX/8" });
 var tboltLFull = S.op("move", {
-  "screen" : monTboltL,
+  "screen" : monDell,
   "x" : "screenOriginX",
   "y" : "screenOriginY",
   "width" : "screenSizeX",
@@ -176,7 +176,7 @@ var oneMonitorLayout = S.lay("oneMonitor", {
 });
 
 // 1 monitor layout with Dell 2560x1440
-var dellMonitorLayout = S.lay("dellMonitor", {
+var dellOneMonitorLayout = S.lay("dellOneMonitor", {
   "Adium" : {
     "operations" : [lapChat, tboltLLeftBot],
     "ignore-fail" : true,
@@ -212,13 +212,13 @@ S.def(3, threeMonitorLayout);
 S.def(2, twoMonitorLayout);
 //S.def(1, oneMonitorLayout);
 S.def(["2880x1800"], oneMonitorLayout);
-S.def(["2560x1440"], dellMonitorLayout);
+S.def(["2560x1440"], dellOneMonitorLayout);
 
 // Layout Operations
 var threeMonitor = S.op("layout", { "name" : threeMonitorLayout });
 var twoMonitor = S.op("layout", { "name" : twoMonitorLayout });
 var oneMonitor = S.op("layout", { "name" : oneMonitorLayout });
-var dellMonitor = S.op("layout", { "name" : dellMonitorLayout });
+var dellOneMonitor = S.op("layout", { "name" : dellOneMonitorLayout });
 var universalLayout = function() {
   // Should probably make sure the resolutions match but w/e
   S.log("SCREEN COUNT: "+S.screenCount());
@@ -228,7 +228,7 @@ var universalLayout = function() {
     twoMonitor.run();
   } else if (S.screenCount() === 1) {
     if (S.screenForRef(0).rect().width == 2560) {
-      dellMonitor.run();
+      dellOneMonitor.run();
     } else {
       oneMonitor.run();
     }

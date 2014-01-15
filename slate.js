@@ -205,7 +205,43 @@ var dellOneMonitorLayout = S.lay("dellOneMonitor", {
   "Sequel Pro" : { "operations" : dellMTop }
 });
 
-var twoMonitorLayout = oneMonitorLayout;
+var twoMonitorLayout = S.lay("twoMonitor", {
+  "Adium" : {
+    "operations" : [lapChat, tboltLLeftBot],
+    "ignore-fail" : true,
+    "title-order" : ["Contacts"],
+    "repeat-last" : true
+  },
+  "MacVim" : mvimHash,
+  "iTerm" : {
+    "operations" : S.op("move", {
+      "screen" : monDell,
+      "x" : "screenOriginX",
+      "y" : -(1440*2/3),
+      "width" : 2560/2,
+      "height" : 1440*2/3
+    }),
+    "repeat" : true
+  },
+  "Chrome" : genBrowserHash(/^Developer\sTools\s-\s.+$/),
+  "Google Chrome" : genBrowserHash(/^Developer\sTools\s-\s.+$/),
+  "GitX" : {
+    "operations" : [tboltLLeftTop],
+    "repeat" : true
+  },
+  "Firefox" : genBrowserHash(/^Firebug\s-\s.+$/),
+  "Safari" : genBrowserHash(/^Web\sInspector/),
+  "Spotify" : {
+    "operations" : [tboltRRightTop],
+    "repeat" : true
+  },
+  "IntelliJ IDEA" : { "operations" : dellwideR, "repeat" : true},
+  "RubyMine" : { "operations" : dellwideR, "repeat" : true},
+  "Dash" : { "operations" : dellLTop },
+  "Sublime Text" : { "operations" : dellwideM, "repeat" : true},
+  "Terminal" : { "operations" : dellMBot, "repeat" : true},
+  "Sequel Pro" : { "operations" : dellMTop }
+})
 
 // Defaults
 S.def(3, threeMonitorLayout);
@@ -335,8 +371,10 @@ S.bnda({
   // Switch currently doesn't work well so I'm commenting it out until I fix it.
   //"tab:cmd" : S.op("switch"),
 
-  // Grid
-  "esc:ctrl" : S.op("grid")
+  // Gcid
+  "esc:ctrl" : S.op("grid"),
+
+  "esc:ctrl;alt;cmd" : S.op("relaunch")
 });
 
 // Test Cases

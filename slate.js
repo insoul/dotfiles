@@ -39,7 +39,6 @@ var tboltLMidBot = tboltLMidTop.dup({ "y" : "screenOriginY+screenSizeY/2" });
 var tboltLRightTop = tboltLRight.dup({ "height" : "screenSizeY/2" });
 var tboltLRightBot = tboltLRightTop.dup({ "y" : "screenOriginY+screenSizeY/2" });
 
-S.log(Math.random());
 var dell = tboltLFull.dup({ "width" : "screenSizeX/2" });
 var dellL = dell;
 var dellM = dell.dup({ "x" : "screenSizeX/6" });
@@ -121,7 +120,7 @@ var genBrowserHash = function(regex) {
       var title = windowObject.title();
       if (title !== undefined && title.match(regex)) {
         windowObject.doOperation(dellLTop.dup({ "width" : "screenSizeX/3" }));
-      } else if (title !== undefined && title.match(/벅스/)) {
+      } else if (title !== undefined && title.match(/벅스 음악 플레이어/)) {
       } else {
         windowObject.doOperation(dellwideLM);
       }
@@ -169,6 +168,7 @@ var oneMonitorLayout = S.lay("oneMonitor", {
   "Safari" : lapMainHash,
   "Eclipse" : lapMainHash,
   "IntelliJ IDEA" : lapMainHash,
+  "RubyMine" : lapMainHash,
   "Sublime Text" : lapMainHash,
   "TextMate" : lapLeftHash,
   "Dash" : lapMainHash,
@@ -198,6 +198,7 @@ var dellMonitorLayout = S.lay("dellMonitor", {
     "repeat" : true
   },
   "IntelliJ IDEA" : { "operations" : dellwideR, "repeat" : true},
+  "RubyMine" : { "operations" : dellwideR, "repeat" : true},
   "Dash" : { "operations" : dellLTop },
   "Sublime Text" : { "operations" : dellwideM, "repeat" : true},
   "Terminal" : { "operations" : dellMBot, "repeat" : true},

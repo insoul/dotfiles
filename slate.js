@@ -11,6 +11,7 @@ S.cfga({
 var monDell = "2560x1440";
 var monTboltR = "2";
 var monLaptop = "2880x1800";
+var monMain = "1";
 
 // Operations
 var lapChat = S.op("corner", {
@@ -121,6 +122,8 @@ var genBrowserHash = function(regex) {
       if (title !== undefined && title.match(regex)) {
         windowObject.doOperation(dellLTop.dup({ "width" : "screenSizeX/3" }));
       } else if (title !== undefined && title.match(/벅스 음악 플레이어/)) {
+      } else if (title !== undefined && title.match(/Facebook/)) {
+        windowObject.doOperation(lapMain);
       } else {
         windowObject.doOperation(dellwideLM);
       }
@@ -217,9 +220,9 @@ var twoMonitorLayout = S.lay("twoMonitor", {
     "operations" : S.op("move", {
       "screen" : monDell,
       "x" : "screenOriginX",
-      "y" : -(1440*2/3),
+      "y" : -1440,
       "width" : 2560/2,
-      "height" : 1440*2/3
+      "height" : 1440
     }),
     "repeat" : true
   },
@@ -279,6 +282,7 @@ S.bnda({
   "space:ctrl;alt;cmd" : universalLayout,
 
   // Basic Location Bindings
+  /*
   "pad0:ctrl" : lapChat,
   "[:ctrl" : lapChat,
   "pad.:ctrl" : lapMain,
@@ -303,6 +307,7 @@ S.bnda({
   "pad8:alt" : tboltRMid,
   "pad9:alt" : tboltRRight,
   "pad=:alt" : tboltRFull,
+  */
 
   // Resize Bindings
   // NOTE: some of these may *not* work if you have not removed the expose/spaces/mission control bindings
@@ -314,8 +319,9 @@ S.bnda({
   "right:alt" : S.op("resize", { "width" : "-10%", "height" : "+0", "anchor" : "bottom-right" }),
   "left:alt" : S.op("resize", { "width" : "+10%", "height" : "+0", "anchor" : "bottom-right" }),
   "up:alt" : S.op("resize", { "width" : "+0", "height" : "+10%", "anchor" : "bottom-right" }),
-  "down:alt" : S.op("resize", { "width" : "+0", "height" : "-10%", "anchor" : "bottom-right" }),
+  "down:alt" : S.op("resize", { "width" : "+-1", "height" : "-10%", "anchor" : "bottom-right" }),
   */
+  "f:ctrl;alt;cmd" : S.op("move", { "x" : "screenOriginX", "y" : "screenOriginY", "width" : "screenSizeX", "height" : "screenSizeY" }),
 
   // Push Bindings
   // NOTE: some of these may *not* work if you have not removed the expose/spaces/mission control bindings

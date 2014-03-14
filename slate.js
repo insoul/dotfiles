@@ -4,7 +4,7 @@ S.cfga({
   "secondsBetweenRepeat" : 0.1,
   "checkDefaultsOnLoad" : true,
   "focusCheckWidthMax" : 3000,
-  "orderScreensLeftToRight" : true
+  "orderScreensLeftToRight" : false
 });
 
 // Monitors
@@ -55,7 +55,7 @@ var dellwide = tboltLFull.dup({ "width" : "screenSizeX*4/7" });
 var dellwideL = dellwide;
 var dellwideLM = dellwide.dup({ "x" : "screenSizeX/10" });
 var dellwideM = dellwide.dup({ "x" : "screenSizeX/7" });
-var dellwideR = dellwide.dup({ "x" : "screenSizeX*4/7" });
+var dellwideR = dellwide.dup({ "x" : "screenSizeX*3/7" });
 var dellwideLTop = dellwideL.dup({ "height" : "screenSizeY*2/3" });
 var dellwideLBot = dellwideLTop.dup({ "y" : "screenSizeY/3" });
 var dellwideLMTop = dellwideLM.dup({ "height" : "screenSizeY*2/3" });
@@ -115,6 +115,27 @@ var iTermHash2 = {
   "repeat" : true
 }
 
+var genMessengerHash = function(regex) {
+  return {
+    "operations" : function(windowObject) {
+      var title = windowObject.title();
+      if (title !== undefined && title.match(regex)) {
+        windowObject.doOperation(S.op("move", {
+          "x" : 1440 - 400, "y" : 0,
+          "width" : 400, "height" : 600,
+        }));
+      } else {
+        windowObject.doOperation(S.op("move", {
+          "x" : Math.random() * 100, "y" : Math.random() * 100,
+          "width" : 400, "height" : 500
+        }));
+      }
+    },
+    "ignore-fail" : true,
+    "repeat" : true
+  }
+}
+
 var genBrowserHash = function(regex) {
   return {
     "operations" : [function(windowObject) {
@@ -123,7 +144,9 @@ var genBrowserHash = function(regex) {
         windowObject.doOperation(dellLTop.dup({ "width" : "screenSizeX/3" }));
       } else if (title !== undefined && title.match(/벅스 음악 플레이어/)) {
       } else if (title !== undefined && title.match(/Facebook/)) {
-        windowObject.doOperation(lapMain);
+        windowObject.doOperation(lapMain.dup({ "screen" : "0" }));
+      } else if (windowObject.app().name() == "Firefox") {
+        windowObject.doOperation(lapMain.dup({ "screen" : "0" }));
       } else {
         windowObject.doOperation(dellwideLM);
       }
@@ -175,7 +198,8 @@ var oneMonitorLayout = S.lay("oneMonitor", {
   "Sublime Text" : lapMainHash,
   "TextMate" : lapLeftHash,
   "Dash" : lapMainHash,
-  "Spotify" : lapMainHash
+  "Spotify" : lapMainHash,
+  "KakaoTalk" : genMessengerHash(/^Main$/)
 });
 
 // 1 monitor layout with Dell 2560x1440
@@ -205,7 +229,8 @@ var dellOneMonitorLayout = S.lay("dellOneMonitor", {
   "Dash" : { "operations" : dellLTop },
   "Sublime Text" : { "operations" : dellwideM, "repeat" : true},
   "Terminal" : { "operations" : dellMBot, "repeat" : true},
-  "Sequel Pro" : { "operations" : dellMTop }
+  "Sequel Pro" : { "operations" : dellMTop },
+  "KakaoTalk" : genMessengerHash(/^Main$/)
 });
 
 var twoMonitorLayout = S.lay("twoMonitor", {
@@ -242,8 +267,15 @@ var twoMonitorLayout = S.lay("twoMonitor", {
   "RubyMine" : { "operations" : dellwideR, "repeat" : true},
   "Dash" : { "operations" : dellLTop },
   "Sublime Text" : { "operations" : dellwideM, "repeat" : true},
-  "Terminal" : { "operations" : dellMBot, "repeat" : true},
-  "Sequel Pro" : { "operations" : dellMTop }
+  "Terminal" : { "operations" : S.op("move", {
+    "screen" : 1,
+    "x" : 0,
+    "y" : 0,
+    "width" : 1440*2/3,
+    "height" : 900
+  }), "repeat" : true},
+  "Sequel Pro" : { "operations" : dellMTop },
+  "KakaoTalk" : genMessengerHash(/^Main$/)
 })
 
 // Defaults

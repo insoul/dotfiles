@@ -9,7 +9,7 @@ S.cfga({
 
 // Monitors
 var monDell = "2560x1440";
-var monTboltR = "2";
+var monSub = "2";
 var monLaptop = "2880x1800";
 var monMain = "1";
 
@@ -42,32 +42,32 @@ var tboltLRightBot = tboltLRightTop.dup({ "y" : "screenOriginY+screenSizeY/2" })
 
 var dell = tboltLFull.dup({ "width" : "screenSizeX/2" });
 var dellL = dell;
-var dellM = dell.dup({ "x" : "screenSizeX/6" });
-var dellR = dell.dup({ "x" : "screenSizeX/2" });
+var dellM = dell.dup({ "x" : "screenOriginX+screenSizeX/6" });
+var dellR = dell.dup({ "x" : "screenOriginX+screenSizeX/2" });
 var dellLTop = dellL.dup({ "height" : "screenSizeY*2/3" });
-var dellLBot = dellLTop.dup({ "y" : "screenSizeY/3" });
+var dellLBot = dellLTop.dup({ "y" : "screenOriginY+screenSizeY/3" });
 var dellMTop = dellM.dup({ "height" : "screenSizeY*2/3" });
-var dellMBot = dellMTop.dup({ "y" : "screenSizeY/3" });
+var dellMBot = dellMTop.dup({ "y" : "screenOriginY+screenSizeY/3" });
 var dellRTop = dellR.dup({ "height" : "screenSize*2/3" });
-var dellRBot = dellRTop.dup({ "y" : "screenSize/3" });
+var dellRBot = dellRTop.dup({ "y" : "screenOriginY+screenSize/3" });
 
 var dellwide = tboltLFull.dup({ "width" : "screenSizeX*4/7" });
 var dellwideL = dellwide;
-var dellwideLM = dellwide.dup({ "x" : "screenSizeX/10" });
-var dellwideM = dellwide.dup({ "x" : "screenSizeX/7" });
-var dellwideR = dellwide.dup({ "x" : "screenSizeX*3/7" });
+var dellwideLM = dellwide.dup({ "x" : "screenOriginX+screenSizeX/10" });
+var dellwideM = dellwide.dup({ "x" : "screenOriginX+screenSizeX/7" });
+var dellwideR = dellwide.dup({ "x" : "screenOriginX+screenSizeX*3/7" });
 var dellwideLTop = dellwideL.dup({ "height" : "screenSizeY*2/3" });
-var dellwideLBot = dellwideLTop.dup({ "y" : "screenSizeY/3" });
+var dellwideLBot = dellwideLTop.dup({ "y" : "screenOriginY+screenSizeY/3" });
 var dellwideLMTop = dellwideLM.dup({ "height" : "screenSizeY*2/3" });
-var dellwideLMBot = dellwideLMTop.dup({ "y" : "screenSizeY/3" });
+var dellwideLMBot = dellwideLMTop.dup({ "y" : "screenOriginY+screenSizeY/3" });
 var dellwideMTop = dellwideM.dup({ "height" : "screenSizeY*2/3" });
-var dellwideMBot = dellwideMTop.dup({ "y" : "screenSizeY/3" });
+var dellwideMBot = dellwideMTop.dup({ "y" : "screenOriginY+screenSizeY/3" });
 var dellwideRTop = dellwideR.dup({ "height" : "screenSize*2/3" });
-var dellwideRBot = dellwideRTop.dup({ "y" : "screenSize/3" });
+var dellwideRBot = dellwideRTop.dup({ "y" : "screenOriginY+screenSize/3" });
 
 
 var tboltRFull = S.op("move", {
-  "screen" : monTboltR,
+  "screen" : monSub,
   "x" : "screenOriginX",
   "y" : "screenOriginY",
   "width" : "screenSizeX",
@@ -243,11 +243,11 @@ var twoMonitorLayout = S.lay("twoMonitor", {
   "MacVim" : mvimHash,
   "iTerm" : {
     "operations" : S.op("move", {
-      "screen" : monDell,
+      "screen" : monSub,
       "x" : "screenOriginX",
-      "y" : -1440,
-      "width" : 2560/2,
-      "height" : 1440
+      "y" : "screenOriginY",
+      "width" : "screenSizeX*3/7",
+      "height" : "screenSizeY"
     }),
     "repeat" : true
   },

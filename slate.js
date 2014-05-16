@@ -115,19 +115,30 @@ var iTermHash2 = {
   "repeat" : true
 }
 
-var genMessengerHash = function(regex) {
+var genMessengerHash = function(regex1, regex2, regex3) {
   return {
     "operations" : function(windowObject) {
       var title = windowObject.title();
-      if (title !== undefined && title.match(regex)) {
+      if (title !== undefined && title.match(regex1)) {
         windowObject.doOperation(S.op("move", {
-          "x" : 1440 - 400, "y" : 0,
-          "width" : 400, "height" : 800,
+          "screen": monMain,
+          "x" : "screenOriginX", "y" : "screenOriginY",
+          "width" : 400, "height" : "screenSizeY",
+        }));
+      } else if (title !== undefined && regex2 !== undefined && title.match(regex2)) {
+        windowObject.doOperation(S.op("move", {
+          "x" : "screenOriginX", "y" : "screenOriginY",
+          "width" : 400, "height" : "screenSizeY",
+        }));
+      } else if (title !== undefined && regex3 !== undefined && title.match(regex3)) {
+        windowObject.doOperation(S.op("move", {
+          "x" : "screenOriginX", "y" : "screenOriginY",
+          "width" : 400, "height" : "screenSizeY",
         }));
       } else {
         windowObject.doOperation(S.op("move", {
           "x" : Math.random() * 100, "y" : Math.random() * 100,
-          "width" : 600, "height" : 800
+          "width" : 600, "height" : 700
         }));
       }
     },
@@ -199,7 +210,7 @@ var oneMonitorLayout = S.lay("oneMonitor", {
   "TextMate" : lapLeftHash,
   "Dash" : lapMainHash,
   "Spotify" : lapMainHash,
-  "KakaoTalk" : genMessengerHash(/^Main$/)
+  "KakaoTalk" : genMessengerHash(/^Friends$/, /^Chat$/, /^More$/)
 });
 
 // 1 monitor layout with Dell 2560x1440
@@ -230,7 +241,7 @@ var dellOneMonitorLayout = S.lay("dellOneMonitor", {
   "Sublime Text" : { "operations" : dellwideM, "repeat" : true},
   "Terminal" : { "operations" : dellMBot, "repeat" : true},
   "Sequel Pro" : { "operations" : dellMTop },
-  "KakaoTalk" : genMessengerHash(/^Main$/)
+  "KakaoTalk" : genMessengerHash(/^Friends$/, /^Chat$/, /^More$/)
 });
 
 var twoMonitorLayout = S.lay("twoMonitor", {
@@ -275,7 +286,7 @@ var twoMonitorLayout = S.lay("twoMonitor", {
     "height" : 900
   }), "repeat" : true},
   "Sequel Pro" : { "operations" : dellMTop },
-  "KakaoTalk" : genMessengerHash(/^Main$/)
+  "KakaoTalk" : genMessengerHash(/^Friends$/, /^Chat$/, /^More$/)
 })
 
 // Defaults

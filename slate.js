@@ -122,12 +122,12 @@ var genMessengerHash = function(regex) {
       if (title !== undefined && title.match(regex)) {
         windowObject.doOperation(S.op("move", {
           "x" : 1440 - 400, "y" : 0,
-          "width" : 400, "height" : 600,
+          "width" : 400, "height" : 800,
         }));
       } else {
         windowObject.doOperation(S.op("move", {
           "x" : Math.random() * 100, "y" : Math.random() * 100,
-          "width" : 400, "height" : 500
+          "width" : 600, "height" : 800
         }));
       }
     },

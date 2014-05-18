@@ -127,16 +127,19 @@ var genMessengerHash = function(regex1, regex2, regex3) {
         }));
       } else if (title !== undefined && regex2 !== undefined && title.match(regex2)) {
         windowObject.doOperation(S.op("move", {
+          "screen": monMain,
           "x" : "screenOriginX", "y" : "screenOriginY",
           "width" : 400, "height" : "screenSizeY",
         }));
       } else if (title !== undefined && regex3 !== undefined && title.match(regex3)) {
         windowObject.doOperation(S.op("move", {
+          "screen": monMain,
           "x" : "screenOriginX", "y" : "screenOriginY",
           "width" : 400, "height" : "screenSizeY",
         }));
       } else {
         windowObject.doOperation(S.op("move", {
+          "screen": monMain,
           "x" : Math.random() * 100, "y" : Math.random() * 100,
           "width" : 600, "height" : 700
         }));
@@ -210,7 +213,7 @@ var oneMonitorLayout = S.lay("oneMonitor", {
   "TextMate" : lapLeftHash,
   "Dash" : lapMainHash,
   "Spotify" : lapMainHash,
-  "KakaoTalk" : genMessengerHash(/^Friends$/, /^Chat$/, /^More$/)
+  "KakaoTalk" : genMessengerHash(/^Friends$/, /^Chats$/, /^More$/)
 });
 
 // 1 monitor layout with Dell 2560x1440
@@ -241,7 +244,7 @@ var dellOneMonitorLayout = S.lay("dellOneMonitor", {
   "Sublime Text" : { "operations" : dellwideM, "repeat" : true},
   "Terminal" : { "operations" : dellMBot, "repeat" : true},
   "Sequel Pro" : { "operations" : dellMTop },
-  "KakaoTalk" : genMessengerHash(/^Friends$/, /^Chat$/, /^More$/)
+  "KakaoTalk" : genMessengerHash(/^Friends$/, /^Chats$/, /^More$/)
 });
 
 var twoMonitorLayout = S.lay("twoMonitor", {
@@ -286,7 +289,7 @@ var twoMonitorLayout = S.lay("twoMonitor", {
     "height" : 900
   }), "repeat" : true},
   "Sequel Pro" : { "operations" : dellMTop },
-  "KakaoTalk" : genMessengerHash(/^Friends$/, /^Chat$/, /^More$/)
+  "KakaoTalk" : genMessengerHash(/^Friends$/, /^Chats$/, /^More$/)
 })
 
 // Defaults

@@ -158,7 +158,11 @@ var genBrowserHash = function(regex) {
         windowObject.doOperation(dellLTop.dup({ "width" : "screenSizeX/3" }));
       } else if (title !== undefined && title.match(/벅스 음악 플레이어/)) {
       } else if (title !== undefined && title.match(/Facebook/)) {
-        windowObject.doOperation(lapMain.dup({ "screen" : "0" }));
+        if (S.screenForRef(0).rect().width == 2560) {
+          windowObject.doOperation(dellwideLM);
+        } else {
+          windowObject.doOperation(lapMain.dup({ "screen" : "0" }));
+        }
       } else if (windowObject.app().name() == "Firefox") {
         windowObject.doOperation(lapMain.dup({ "screen" : "0" }));
       } else {
@@ -308,13 +312,17 @@ var universalLayout = function() {
   // Should probably make sure the resolutions match but w/e
   S.log("SCREEN COUNT: "+S.screenCount());
   if (S.screenCount() === 3) {
+    S.log("Three monitor");
     threeMonitor.run();
   } else if (S.screenCount() === 2) {
+    S.log("Two monitor");
     twoMonitor.run();
   } else if (S.screenCount() === 1) {
     if (S.screenForRef(0).rect().width == 2560) {
+      S.log("One dell monitor");
       dellOneMonitor.run();
     } else {
+      S.log("One monitor");
       oneMonitor.run();
     }
   }

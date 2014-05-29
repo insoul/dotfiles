@@ -115,7 +115,7 @@ var iTermHash2 = {
   "repeat" : true
 }
 
-var genMessengerHash = function(regex1, regex2, regex3) {
+var katalkHash = function(regex1, regex2, regex3) {
   return {
     "operations" : function(windowObject) {
       var title = windowObject.title();
@@ -123,24 +123,49 @@ var genMessengerHash = function(regex1, regex2, regex3) {
         windowObject.doOperation(S.op("move", {
           "screen": monMain,
           "x" : "screenOriginX", "y" : "screenOriginY",
-          "width" : 400, "height" : "screenSizeY",
+          "width" : 400, "height" : "screenSizeY/2",
         }));
       } else if (title !== undefined && regex2 !== undefined && title.match(regex2)) {
         windowObject.doOperation(S.op("move", {
           "screen": monMain,
           "x" : "screenOriginX", "y" : "screenOriginY",
-          "width" : 400, "height" : "screenSizeY",
+          "width" : 400, "height" : "screenSizeY/2",
         }));
       } else if (title !== undefined && regex3 !== undefined && title.match(regex3)) {
         windowObject.doOperation(S.op("move", {
           "screen": monMain,
           "x" : "screenOriginX", "y" : "screenOriginY",
-          "width" : 400, "height" : "screenSizeY",
+          "width" : 400, "height" : "screenSizeY/2",
         }));
       } else {
+        rand = Math.round(Math.random() * 200);
         windowObject.doOperation(S.op("move", {
           "screen": monMain,
-          "x" : Math.random() * 100, "y" : Math.random() * 100,
+          "x" : "screenOriginX + 20", "y" : "screenOriginY + " + rand,
+          "width" : 600, "height" : 700
+        }));
+      }
+    },
+    "ignore-fail" : true,
+    "repeat" : true
+  }
+}
+
+var lineHash = function() {
+  return {
+    "operations" : function(windowObject) {
+      var title = windowObject.title();
+      if (title !== undefined && title.match(/^LINE$/)) {
+        windowObject.doOperation(S.op("move", {
+          "screen": monMain,
+          "x" : "screenOriginX", "y" : "screenSizeY/2",
+          "width" : 400, "height" : "screenSizeY/2",
+        }));
+      } else {
+        rand = Math.round(Math.random() * 200);
+        windowObject.doOperation(S.op("move", {
+          "screen": monMain,
+          "x" : "screenOriginX + 20", "y" : "screenOriginY + screenSizeY/2 + "+rand,
           "width" : 600, "height" : 700
         }));
       }
@@ -217,7 +242,8 @@ var oneMonitorLayout = S.lay("oneMonitor", {
   "TextMate" : lapLeftHash,
   "Dash" : lapMainHash,
   "Spotify" : lapMainHash,
-  "KakaoTalk" : genMessengerHash(/^Friends$/, /^Chats$/, /^More$/)
+  "LINE" : lineHash(),
+  "KakaoTalk" : katalkHash(/^Friends$/, /^Chats$/, /^More$/)
 });
 
 // 1 monitor layout with Dell 2560x1440
@@ -248,7 +274,8 @@ var dellOneMonitorLayout = S.lay("dellOneMonitor", {
   "Sublime Text" : { "operations" : dellwideM, "repeat" : true},
   "Terminal" : { "operations" : dellMBot, "repeat" : true},
   "Sequel Pro" : { "operations" : dellMTop },
-  "KakaoTalk" : genMessengerHash(/^Friends$/, /^Chats$/, /^More$/)
+  "LINE" : lineHash(),
+  "KakaoTalk" : katalkHash(/^Friends$/, /^Chats$/, /^More$/)
 });
 
 var twoMonitorLayout = S.lay("twoMonitor", {
@@ -293,7 +320,8 @@ var twoMonitorLayout = S.lay("twoMonitor", {
     "height" : 900
   }), "repeat" : true},
   "Sequel Pro" : { "operations" : dellMTop },
-  "KakaoTalk" : genMessengerHash(/^Friends$/, /^Chats$/, /^More$/)
+  "LINE" : lineHash(),
+  "KakaoTalk" : katalkHash(/^Friends$/, /^Chats$/, /^More$/)
 })
 
 // Defaults

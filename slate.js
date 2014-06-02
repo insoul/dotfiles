@@ -158,7 +158,7 @@ var lineHash = function() {
       if (title !== undefined && title.match(/^LINE$/)) {
         windowObject.doOperation(S.op("move", {
           "screen": monMain,
-          "x" : "screenOriginX", "y" : "screenSizeY/2",
+          "x" : "screenOriginX", "y" : "screenOriginY + screenSizeY/2",
           "width" : 400, "height" : "screenSizeY/2",
         }));
       } else {

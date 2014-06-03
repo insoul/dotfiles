@@ -288,7 +288,7 @@ var twoMonitorLayout = S.lay("twoMonitor", {
   "MacVim" : mvimHash,
   "iTerm" : {
     "operations" : S.op("move", {
-      "screen" : monSub,
+      "screen" : monDell,
       "x" : "screenOriginX",
       "y" : "screenOriginY",
       "width" : "screenSizeX*3/7",
@@ -312,13 +312,16 @@ var twoMonitorLayout = S.lay("twoMonitor", {
   "RubyMine" : { "operations" : dellwideR, "repeat" : true},
   "Dash" : { "operations" : dellLTop },
   "Sublime Text" : { "operations" : dellwideM, "repeat" : true},
-  "Terminal" : { "operations" : S.op("move", {
-    "screen" : 1,
-    "x" : 0,
-    "y" : 0,
-    "width" : 1440*2/3,
-    "height" : 900
-  }), "repeat" : true},
+  "Terminal" : {
+    "operations" : S.op("move", {
+      "screen" : monLaptop,
+      "x" : "screenOriginX",
+      "y" : "screenOriginY",
+      "width" : "screenSizeX*2/3",
+      "height" : "screenSizeY"
+    }),
+    "repeat" : true
+  },
   "Sequel Pro" : { "operations" : dellMTop },
   "LINE" : lineHash(),
   "KakaoTalk" : katalkHash(/^Friends$/, /^Chats$/, /^More$/)

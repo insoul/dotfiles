@@ -228,7 +228,6 @@ var oneMonitorLayout = S.lay("oneMonitor", {
   "Adium" : adiumHash,
   "MacVim" : lapMainHash,
   "iTerm" : lapLeftHash,
-  "Terminal" : lapLeftHash,
   "Chrome" : lapMainHash,
   "Google Chrome" : lapMainHash,
   "Xcode" : lapMainHash,
@@ -272,7 +271,6 @@ var dellOneMonitorLayout = S.lay("dellOneMonitor", {
   "RubyMine" : { "operations" : dellwideR, "repeat" : true},
   "Dash" : { "operations" : dellLTop },
   "Sublime Text" : { "operations" : dellwideM, "repeat" : true},
-  "Terminal" : { "operations" : dellMBot, "repeat" : true},
   "Sequel Pro" : { "operations" : dellMTop },
   "LINE" : lineHash(),
   "KakaoTalk" : katalkHash(/^Friends$/, /^Chats$/, /^More$/)
@@ -312,16 +310,6 @@ var twoMonitorLayout = S.lay("twoMonitor", {
   "RubyMine" : { "operations" : dellwideR, "repeat" : true},
   "Dash" : { "operations" : dellLTop },
   "Sublime Text" : { "operations" : dellwideM, "repeat" : true},
-  "Terminal" : {
-    "operations" : S.op("move", {
-      "screen" : monLaptop,
-      "x" : "screenOriginX",
-      "y" : "screenOriginY",
-      "width" : "screenSizeX*2/3",
-      "height" : "screenSizeY"
-    }),
-    "repeat" : true
-  },
   "Sequel Pro" : { "operations" : dellMTop },
   "LINE" : lineHash(),
   "KakaoTalk" : katalkHash(/^Friends$/, /^Chats$/, /^More$/)

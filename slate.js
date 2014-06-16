@@ -9,9 +9,9 @@ S.cfga({
 
 // Monitors
 var monDell = "2560x1440";
-var monSub = "2";
+var monSub = "1";
 var monLaptop = "2880x1800";
-var monMain = "1";
+var monMain = "0";
 
 // Operations
 var lapChat = S.op("corner", {

@@ -10,7 +10,8 @@ S.cfga({
 // Monitors
 var monDell = "2560x1440";
 var monSub = "1";
-var monLaptop = "2880x1800";
+//var monLaptop = "2880x1800"; // 15inch
+var monLaptop = "2560x1600";
 var monMain = "0";
 
 // Operations

@@ -11,7 +11,6 @@ export SVN_EDITOR=vim
 alias pd='pushd'
 alias sd='dirs -v'
 alias crontab="VIM_CRONTAB=true crontab"
-alias grep='grep --color'
 alias ls='ls --color'
 alias flush_dns='sudo killall -HUP mDNSResponder'
 alias bash="bash; source /Users/`whoami`/.bash_profile"

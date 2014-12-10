@@ -1,8 +1,5 @@
-
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 export PATH=/usr/local/mysql/bin:$PATH
-export PATH=$HOME/.rbenv/bin:$PATH
-export PATH=$HOME/.rbenv/shims:$PATH
 export CLICOLOR=1
 export LSCOLORS=exgxCxDxcxegedabagacad
 export SVN_EDITOR=vim
@@ -16,12 +13,4 @@ alias flush_dns='sudo killall -HUP mDNSResponder'
 alias bash="bash; source /Users/`whoami`/.bash_profile"
 alias b="bundle"
 alias bx="bundle exec"
-
-#[[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
-
-#source ~/src/git/contrib/completion/git-completion.bash
-#source ~/src/git/contrib/completion/git-prompt.sh
-source ~/src/git-prompt/git-prompt.sh
-
-eval "$(rbenv init -)"
 

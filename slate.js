@@ -209,7 +209,7 @@ var threeMonitorLayout = S.lay("threeMonitor", {
     "repeat-last" : true
   },
   "MacVim" : mvimHash,
-  "iTerm" : iTermHash,
+  "iTerm2" : iTermHash,
   "Chrome" : genBrowserHash(/^Developer\sTools\s-\s.+$/),
   "Google Chrome" : genBrowserHash(/^Developer\sTools\s-\s.+$/),
   "GitX" : {
@@ -228,7 +228,7 @@ var threeMonitorLayout = S.lay("threeMonitor", {
 var oneMonitorLayout = S.lay("oneMonitor", {
   "Adium" : adiumHash,
   "MacVim" : lapMainHash,
-  "iTerm" : lapLeftHash,
+  "iTerm2" : lapLeftHash,
   "Chrome" : lapMainHash,
   "Google Chrome" : lapMainHash,
   "Xcode" : lapMainHash,
@@ -255,7 +255,7 @@ var dellOneMonitorLayout = S.lay("dellOneMonitor", {
     "repeat-last" : true
   },
   "MacVim" : mvimHash,
-  "iTerm" : iTermHash2,
+  "iTerm2" : iTermHash2,
   "Chrome" : genBrowserHash(/^Developer\sTools\s-\s.+$/),
   "Google Chrome" : genBrowserHash(/^Developer\sTools\s-\s.+$/),
   "GitX" : {
@@ -285,7 +285,7 @@ var twoMonitorLayout = S.lay("twoMonitor", {
     "repeat-last" : true
   },
   "MacVim" : mvimHash,
-  "iTerm" : {
+  "iTerm2" : {
     "operations" : S.op("move", {
       "screen" : monDell,
       "x" : "screenOriginX",

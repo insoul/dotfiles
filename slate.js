@@ -290,7 +290,7 @@ var twoMonitorLayout = S.lay("twoMonitor", {
       "screen" : monDell,
       "x" : "screenOriginX",
       "y" : "screenOriginY",
-      "width" : "screenSizeX*3/7",
+      "width" : "screenSizeX*6/10",
       "height" : "screenSizeY"
     }),
     "repeat" : true
@@ -396,6 +396,10 @@ S.bnda({
   "down:alt" : S.op("resize", { "width" : "+-1", "height" : "-10%", "anchor" : "bottom-right" }),
   */
   "f:ctrl;alt;cmd" : S.op("move", { "x" : "screenOriginX", "y" : "screenOriginY", "width" : "screenSizeX", "height" : "screenSizeY" }),
+  "left:ctrl;alt;cmd" : S.op("move", { "x" : "screenOriginX", "y" : "screenOriginY", "width" : "6*screenSizeX/10", "height" : "screenSizeY" }),
+	"right:ctrl;alt;cmd" : S.op("move", { "x" : "screenOriginX+(4*screenSizeX/10)", "y" : "screenOriginY", "width" : "6*screenSizeX/10", "height" : "screenSizeY" }),
+  "up:ctrl;alt;cmd" : S.op("resize", { "width" : "+0", "height" : "-50%" }),
+  "down:ctrl;alt;cmd" : S.op("resize", { "width" : "+-1", "height" : "-50%", "anchor" : "bottom-right" }),
 
   // Push Bindings
   // NOTE: some of these may *not* work if you have not removed the expose/spaces/mission control bindings

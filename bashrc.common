@@ -13,4 +13,8 @@ alias flush_dns='sudo killall -HUP mDNSResponder'
 alias bash="bash; source /Users/`whoami`/.bash_profile"
 alias b="bundle"
 alias bx="bundle exec"
+alias u="cd .."
+alias uu="cd ../.."
+alias uuu="cd ../../.."
+
 
